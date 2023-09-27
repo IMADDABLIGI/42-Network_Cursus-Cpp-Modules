@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:33:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/27 09:20:33 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:29:15 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,12 @@
 #include <exception>
 #include <iostream>
 
-class GradeTooHighException : public std::exception
-{
-    public:
-    const char* what() const throw() {
-        return "Grade is too High\n";
-    }
-};
-
-// class GradeTooLowException : public std::exception
-// {
-//     public:
-//     const char* what() const noexcept override {
-//         return "Grade is too low\n";
-//     }
-// };
-
 class Bureaucrat
 {
     private:
         const std::string name;
         int               grade;
-        GradeTooHighException high;
-        // GradeTooLowException low;
-    
+
     public:
         Bureaucrat();
         Bureaucrat(std::string Name, int Grade);
@@ -49,7 +31,24 @@ class Bureaucrat
 
         int                 getGrade();
         const std::string   getName();
-        int check_grade(int Grade);
+        void				decrement();
+        void				increment();
+        int					check_grade(int &Grade);
+
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+			const char* what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+			const char* what() const throw();
+		};
 };
+
+std::ostream &operator<<(std::ostream &cout, Bureaucrat &obj);
 
 #endif

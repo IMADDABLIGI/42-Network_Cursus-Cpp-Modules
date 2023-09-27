@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:57:54 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/27 09:59:31 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:52:23 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,51 @@
 
 int main()
 {
-    try {
-        Bureaucrat A("IMAD", 0);
-    }
-    // catch (const GradeTooHighException &high)
-    // {
-    //     std::cout << high.what();
-    // }
-    catch(const std::exception& e)
     {
-        std::cerr << e.what();
+        try {
+            Bureaucrat A("Soldier", 500);
+            std::cout << A;
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what();
+        }
     }
-    
+    {
+        try {
+            Bureaucrat A("Ghost", 149);
+            std::cout << A;
+            A.decrement();
+            A.decrement();
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << e.what();
+        }
+    }
+    {
+        try {
+            Bureaucrat A("Maverick", 2);
+            std::cout << A;
+            A.increment();
+            A.increment();
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << e.what();
+        }
+    }
+    //-----------------Testing Constructor -----------------//
+    {
+        Bureaucrat A("Freax", 69);
+        Bureaucrat B(A);
+        std::cout << B;
+    }
+    //-----------------Testing Assignment Operator ------------------//
+    {
+        Bureaucrat E("Freax", 69);
+        Bureaucrat C("Maverick", 55);
+        C = E;
+        std::cout << C;
+    }
 }

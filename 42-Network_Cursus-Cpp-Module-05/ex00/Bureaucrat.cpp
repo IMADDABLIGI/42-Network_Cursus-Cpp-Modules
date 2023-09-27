@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:36:28 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/27 09:51:49 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:29:54 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,42 @@ const std::string Bureaucrat::getName()
 	return (name);
 }
 
-int Bureaucrat::check_grade(int Grade)
+int Bureaucrat::check_grade(int &Grade)
 {
 	if (Grade < 1)
-	{
-		std::cout << "here\n";	
-		throw high;
-	}
-	// else if (Grade > 150)
-	// 	throw low;
+		throw Bureaucrat::GradeTooHighException();
+	else if (Grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 	else
 		return (Grade);
+}
+
+void	Bureaucrat::increment()
+{
+	grade--;
+	std::cout << "Incrementing" << std::endl;
+	check_grade(grade);
+}
+
+void	Bureaucrat::decrement()
+{
+	grade++;
+	std::cout << "Decrementing" << std::endl;
+	check_grade(grade);
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade is too High\n";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade is too low\n";
+}
+
+std::ostream &operator<<(std::ostream &cout, Bureaucrat &obj)
+{
+	cout << obj.getName() + ", bureaucrat grade " << obj.getGrade() << std::endl;
+	return (cout);
 }
