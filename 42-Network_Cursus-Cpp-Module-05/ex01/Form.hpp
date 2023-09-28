@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:03:36 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/28 15:56:42 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:39:26 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <exception>
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -33,8 +34,9 @@ class Form
 
         const std::string   &getName();
         bool                getSign();
-        const int           &getGrade_sign();
-        const int           &getGrade_exec();
+        const int           &getGrade_sign() const;
+        const int           &getGrade_exec() const;
+        void                beSigned(Bureaucrat &obj);
         int					check_grade(int Grade);
 
 

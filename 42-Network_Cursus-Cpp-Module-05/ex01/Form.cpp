@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:11:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/28 15:56:49 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:35:32 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ bool    Form::getSign()
     return (sign);
 }
 
-const int &Form::getGrade_sign()
+const int &Form::getGrade_sign() const
 {
 	return (grade_sign);
 }
 
-const int &Form::getGrade_exec()
+const int &Form::getGrade_exec() const
 {
 	return (grade_exec);
 }
@@ -97,15 +97,25 @@ const char* Form::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &cout, Form &obj)
 {
-    if (!obj.getSign())
+    if (obj.getSign())
     {
-	    cout << "Form" + obj.getName() + "| Grade required to sign it : " << obj.getGrade_sign();
-        cout << " | Grade required to execute it " << obj.getGrade_exec() << " is signed" << std::endl;
+	    cout << "The Form : " + obj.getName() + " | Grade required to sign it : " << obj.getGrade_sign();
+        cout << " | Grade required to execute it " << obj.getGrade_exec() << " is signed." << std::endl;
     }
     else
     {
-	    cout << "Form" + obj.getName() + "| Grade required to sign it : " << obj.getGrade_sign();
-        cout << " | Grade required to execute it " << obj.getGrade_exec() << " is not signed" << std::endl;
+	    cout << "The Form : " + obj.getName() + " | Grade required to sign it : " << obj.getGrade_sign();
+        cout << " | Grade required to execute it " << obj.getGrade_exec() << " is not signed." << std::endl;
     }
 	return (cout);
+}
+
+void    Form::beSigned(Bureaucrat &obj)
+{
+    if (sign)
+        std::cout << "Form has already been signed !!!" << std::endl;
+    else if (obj.getGrade() <= getGrade_sign())
+        sign = true;
+    else
+        throw Form::GradeTooLowException();
 }
