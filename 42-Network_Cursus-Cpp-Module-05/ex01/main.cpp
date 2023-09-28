@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:57:54 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/28 13:09:23 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:20:25 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int main()
         Bureaucrat B(A);
         std::cout << B;
     }
-    //-----------------Testing Assignment Operator ------------------//
+    //-----------------Testing Copy Assignment Operator ------------------//
     {
         Bureaucrat E("Freax", 69);
         Bureaucrat C("Maverick", 55);

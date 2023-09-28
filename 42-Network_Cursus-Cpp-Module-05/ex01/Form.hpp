@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 10:33:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/28 15:58:47 by idabligi         ###   ########.fr       */
+/*   Created: 2023/09/28 14:03:36 by idabligi          #+#    #+#             */
+/*   Updated: 2023/09/28 15:56:42 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <exception>
 #include <iostream>
 
-class Bureaucrat
+class Form
 {
     private:
         const std::string name;
-        int               grade;
+        bool              sign;
+        const int         grade_sign;
+        const int         grade_exec;
 
     public:
-        Bureaucrat();
-        Bureaucrat(std::string Name, int Grade);
-        Bureaucrat(const Bureaucrat &org_obj);
-        Bureaucrat &operator=(const Bureaucrat &org_obj);
-        ~Bureaucrat();
+        Form();
+        Form(std::string Name, int Grade_sign, int Grade_exec);
+        Form(const Form &org_obj);
+        Form &operator=(const Form &org_obj);
+        ~Form();
 
-        int                 getGrade();
         const std::string   &getName();
-        void				decrement();
-        void				increment();
-        int					check_grade(int &Grade);
+        bool                getSign();
+        const int           &getGrade_sign();
+        const int           &getGrade_exec();
+        int					check_grade(int Grade);
 
 
 		class GradeTooHighException : public std::exception
@@ -49,6 +51,6 @@ class Bureaucrat
 		};
 };
 
-std::ostream &operator<<(std::ostream &cout, Bureaucrat &obj);
+std::ostream &operator<<(std::ostream &cout, Form &obj);
 
 #endif
