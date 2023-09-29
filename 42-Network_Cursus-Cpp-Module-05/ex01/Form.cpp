@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:11:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 11:15:28 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:02:27 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ Form::Form(std::string Name, int Grade_sign, int Grade_exec) : name(Name), sign(
 grade_sign(check_grade(Grade_sign)) ,grade_exec(check_grade(Grade_exec))
 {
 	std::cout << "|| Form || Constructor called" << std::endl;
-    sign = false;
 }
 
 //-----------------------Copy Constructor-----------------------------//
