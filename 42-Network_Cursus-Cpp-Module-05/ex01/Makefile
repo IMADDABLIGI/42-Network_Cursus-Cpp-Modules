@@ -6,11 +6,11 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 10:31:43 by idabligi          #+#    #+#              #
-#    Updated: 2023/09/28 14:15:34 by idabligi         ###   ########.fr        #
+#    Updated: 2023/09/29 11:05:17 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = Bureaucrat_Form
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98

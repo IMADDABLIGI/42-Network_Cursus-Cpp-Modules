@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:11:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/28 18:35:32 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:15:28 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ std::ostream &operator<<(std::ostream &cout, Form &obj)
     if (obj.getSign())
     {
 	    cout << "The Form : " + obj.getName() + " | Grade required to sign it : " << obj.getGrade_sign();
-        cout << " | Grade required to execute it " << obj.getGrade_exec() << " is signed." << std::endl;
+        cout << " | Grade required to execute it " << obj.getGrade_exec() << ", is signed." << std::endl;
     }
     else
     {
 	    cout << "The Form : " + obj.getName() + " | Grade required to sign it : " << obj.getGrade_sign();
-        cout << " | Grade required to execute it " << obj.getGrade_exec() << " is not signed." << std::endl;
+        cout << " | Grade required to execute it " << obj.getGrade_exec() << ", is not signed." << std::endl;
     }
 	return (cout);
 }
@@ -113,7 +113,7 @@ std::ostream &operator<<(std::ostream &cout, Form &obj)
 void    Form::beSigned(Bureaucrat &obj)
 {
     if (sign)
-        std::cout << "Form has already been signed !!!" << std::endl;
+        std::cout << "Form has been already signed !!!" << std::endl;
     else if (obj.getGrade() <= getGrade_sign())
         sign = true;
     else

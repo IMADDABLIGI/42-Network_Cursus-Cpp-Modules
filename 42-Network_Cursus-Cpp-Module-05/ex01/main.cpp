@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:57:54 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/28 18:36:27 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/29 12:38:24 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,13 @@
 
 int main()
 {
-    {
+    { // Testing Constructor failing and beSigned();
         try
         {
-            Bureaucrat B("Soldier", 20);
-            Form A("CDD", 5, 10);
+            Form A("CDD", 10, 10);
+            Bureaucrat B("Ghost", 5);
             std::cout << A;
-            if (!A.getSign())
-            std::cout << "The Form is not signed" << std::endl;
-            else if (A.getSign())
-            std::cout << "The Form is signed" << std::endl;
             A.beSigned(B);
-            if (!A.getSign())
-            std::cout << "The Form is not signed" << std::endl;
-            else if (A.getSign())
-            std::cout << "The Form is signed" << std::endl;
             std::cout << A;
         }
         catch(const std::exception& e)
@@ -37,4 +29,29 @@ int main()
             std::cerr << e.what();
         }
     }
+    // { // Testing signForm();
+    //     Form A("DAIMOND", 80, 50);
+    //     Bureaucrat B("Maverick", 20);
+    //     std::cout << A;
+    //     B.signForm(A);
+    //     A.beSigned(B);
+    //     std::cout << A;
+    //     B.signForm(A);
+    // }
+    // {// Testing Copy Constructor
+    //     Form J("Silver", 20, 20);
+    //     Bureaucrat K("Maverick", 20);
+    //     J.beSigned(K);
+    //     Form L(J);
+    //     std::cout << L;
+    // }
+    // {// Testing Copy assignment operator
+    //     Form A("Silver", 20, 20);
+    //     Bureaucrat C("Maverick", 20);
+    //     A.beSigned(C);
+    //     Form B;
+    //     std::cout << B;
+    //     B = A;
+    //     std::cout << B;
+    // }
 }
