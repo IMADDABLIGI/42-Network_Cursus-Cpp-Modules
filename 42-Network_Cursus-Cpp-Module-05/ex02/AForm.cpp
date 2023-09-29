@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:11:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 17:24:52 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:56:22 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ const std::string &AForm::getName() const
 	return (name);
 }
 
-const std::string &AForm::getTarget() const
+std::string AForm::getTarget() const
 {
 	return (target);
 }
@@ -123,4 +123,9 @@ void    AForm::beSigned(Bureaucrat &obj)
         sign = true;
     else
         throw AForm::GradeTooLowException();
+}
+
+void	AForm::ft_error(std::string Error)
+{
+	std::cout << Error << std::endl;
 }

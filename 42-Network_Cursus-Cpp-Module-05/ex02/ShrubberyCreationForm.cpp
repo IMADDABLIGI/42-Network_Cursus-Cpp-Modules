@@ -6,12 +6,14 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 16:29:16 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 17:23:48 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:03:55 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
+#include <string>
 
 //----------------------------Constructors----------------------------//
 
@@ -58,7 +60,15 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)
 {
     if (this->getSign() && (executor.getGrade() <= this->getGrade_exec()))
     {
-        std::cout << "WORKING\n";
+        std::ofstream file(getTarget().append("_shrubbery"));
+        if (!file.is_open())
+            ft_error("ShrubberyCreationForm || Error : creating file !!!");
+        file << "     A" << std::endl;
+        file << "    / \\" << std::endl;
+        file << "   B   C" << std::endl;
+        file << "  / \\" << std::endl;
+        file << " D   E" << std::endl;
+        file.close();
     }
     else
         throw AForm::ErrorExecuteException();

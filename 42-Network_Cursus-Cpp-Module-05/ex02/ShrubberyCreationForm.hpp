@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 16:22:46 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 16:32:05 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:04:02 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {

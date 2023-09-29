@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:03:36 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 17:18:00 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:56:33 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class AForm
         virtual ~AForm();
 
         const std::string   &getName() const;
-        const std::string   &getTarget() const;
+        std::string   getTarget() const;
         bool                getSign() const;
         void                setSign(bool Sign);
         const int           &getGrade_sign() const;
@@ -43,6 +43,7 @@ class AForm
         void                beSigned(Bureaucrat &obj);
         int					check_grade(int Grade);
         virtual void        execute(Bureaucrat const & executor) =0;
+        void                ft_error(std::string Error);
 
 
 		class GradeTooHighException : public std::exception
