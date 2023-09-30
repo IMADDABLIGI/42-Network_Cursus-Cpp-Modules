@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 16:29:16 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 18:03:55 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/30 11:37:04 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,21 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 //----------------------------Implementations-------------------------//
 //--------------------------------------------------------------------//
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor)
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     if (this->getSign() && (executor.getGrade() <= this->getGrade_exec()))
     {
         std::ofstream file(getTarget().append("_shrubbery"));
         if (!file.is_open())
             ft_error("ShrubberyCreationForm || Error : creating file !!!");
+        std::cout << "<-------| Executing Form ShrubberyCreationForm |------->" << std::endl;
         file << "     A" << std::endl;
         file << "    / \\" << std::endl;
         file << "   B   C" << std::endl;
         file << "  / \\" << std::endl;
         file << " D   E" << std::endl;
+        file << "    / \\" << std::endl;
+        file << "   F   G" << std::endl;
         file.close();
     }
     else

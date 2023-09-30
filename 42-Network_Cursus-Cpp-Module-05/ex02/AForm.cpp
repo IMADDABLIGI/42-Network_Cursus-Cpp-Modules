@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:11:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 17:56:22 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/30 11:46:34 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ sign(org_obj.sign), grade_sign(org_obj.grade_sign) ,grade_exec(org_obj.grade_exe
 	std::cout << "|| AForm || Copy constructor called" << std::endl;
 }
 
-//-----------------------Copy assignmenet Operator--------------------//   TO BE DONE !!!
+//-----------------------Copy assignmenet Operator--------------------//
 
 AForm &AForm::operator=(const AForm &org_obj)
 {
@@ -112,20 +112,40 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 const char* AForm::ErrorExecuteException::what() const throw()
 {
-	return "Error Executing !!! Check Sign and Grade Again";
+	return "Error Executing !!! Check Grade_Sign and Grade_Exec Again !";
 }
 
 void    AForm::beSigned(Bureaucrat &obj)
 {
     if (sign)
-        std::cout << "AForm has been already signed !!!" << std::endl;
+        std::cout << "AForm has been already signed !" << std::endl;
     else if (obj.getGrade() <= getGrade_sign())
+	{
         sign = true;
+		std::cout << "Form : " + getName() + " is signed now" << std::endl;
+	}
     else
         throw AForm::GradeTooLowException();
 }
 
-void	AForm::ft_error(std::string Error)
+void	AForm::ft_error(std::string Error) const
 {
 	std::cout << Error << std::endl;
+	exit (1);
+}
+
+
+std::ostream &operator<<(std::ostream &cout, AForm &obj)
+{
+    if (obj.getSign())
+    {
+	    cout << "The Form : " + obj.getName() + " | Grade required to sign it : " << obj.getGrade_sign();
+        cout << " | Grade required to execute it " << obj.getGrade_exec() << ", is signed." << std::endl;
+    }
+    else
+    {
+	    cout << "The Form : " + obj.getName() + " | Grade required to sign it : " << obj.getGrade_sign();
+        cout << " | Grade required to execute it " << obj.getGrade_exec() << ", is not signed." << std::endl;
+    }
+	return (cout);
 }

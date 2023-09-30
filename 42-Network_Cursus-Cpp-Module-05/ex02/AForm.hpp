@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:03:36 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 17:56:33 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/30 11:45:28 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ class AForm
         const int           &getGrade_exec() const;
         void                beSigned(Bureaucrat &obj);
         int					check_grade(int Grade);
-        virtual void        execute(Bureaucrat const & executor) =0;
-        void                ft_error(std::string Error);
+        virtual void        execute(Bureaucrat const & executor) const =0;// !!!
+        void                ft_error(std::string Error) const;
 
 
 		class GradeTooHighException : public std::exception
@@ -63,7 +63,8 @@ class AForm
 			public:
 			const char* what() const throw();
 		};
-
 };
+
+std::ostream &operator<<(std::ostream &cout, AForm &obj);
 
 #endif
