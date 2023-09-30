@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:11:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/30 11:46:34 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/30 13:47:01 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 const char* AForm::ErrorExecuteException::what() const throw()
 {
-	return "Error Executing !!! Check Grade_Sign and Grade_Exec Again !";
+	return "Error Executing !!! Check Grade_Sign and Grade_Exec Again !\n";
 }
 
 void    AForm::beSigned(Bureaucrat &obj)
