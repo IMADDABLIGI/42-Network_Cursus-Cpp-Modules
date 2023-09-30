@@ -6,7 +6,7 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 10:31:43 by idabligi          #+#    #+#              #
-#    Updated: 2023/09/30 13:37:57 by idabligi         ###   ########.fr        #
+#    Updated: 2023/09/30 16:14:12 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME = 28_C
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
-HEADERS = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
+HEADERS = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 
-FL = main Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm\
+FL = main Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm\
 
 FO = $(FL:=.o)
 

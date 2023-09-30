@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:33:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 16:57:59 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/30 18:14:48 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <exception>
 #include <iostream>
+
+class AForm;
 
 class Bureaucrat
 {
@@ -33,7 +35,7 @@ class Bureaucrat
         const std::string   &getName();
         void				decrement();
         void				increment();
-        // void                signForm(Form &obj);
+        void                executeForm(AForm const & form);
         int					check_grade(int &Grade);
 
 

@@ -6,11 +6,12 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:36:28 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/29 16:57:05 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/30 18:14:24 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 //----------------------------Constructors----------------------------//
 
@@ -100,4 +101,9 @@ std::ostream &operator<<(std::ostream &cout, Bureaucrat &obj)
 {
 	cout << obj.getName() + ", bureaucrat grade " << obj.getGrade() << std::endl;
 	return (cout);
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	form.execute(*this);
 }

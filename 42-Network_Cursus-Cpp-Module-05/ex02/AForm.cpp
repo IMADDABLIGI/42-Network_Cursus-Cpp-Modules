@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:11:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/30 13:47:01 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/30 16:13:01 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,6 @@ void	AForm::ft_error(std::string Error) const
 	std::cout << Error << std::endl;
 	exit (1);
 }
-
 
 std::ostream &operator<<(std::ostream &cout, AForm &obj)
 {

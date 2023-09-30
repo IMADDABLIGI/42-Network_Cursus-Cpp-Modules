@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:03:36 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/30 13:40:27 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/30 16:25:18 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class AForm
         virtual ~AForm();
 
         const std::string   &getName() const;
-        std::string   getTarget() const;
+        std::string         getTarget() const;
         bool                getSign() const;
         void                setSign(bool Sign);
         const int           &getGrade_sign() const;
