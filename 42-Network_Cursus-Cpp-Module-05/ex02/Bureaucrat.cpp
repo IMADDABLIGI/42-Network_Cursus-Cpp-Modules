@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:36:28 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/30 18:14:24 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/09/30 18:22:57 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,5 @@ std::ostream &operator<<(std::ostream &cout, Bureaucrat &obj)
 void	Bureaucrat::executeForm(AForm const & form)
 {
 	form.execute(*this);
+	std::cout << name + " executed " + form.getName() << std::endl; 
 }

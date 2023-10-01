@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:36:28 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/28 19:46:53 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/01 11:54:43 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,14 @@ void	Bureaucrat::signForm(Form &obj)
 	if (obj.getSign())
 		std::cout << name + " signed " + obj.getName() << std::endl;
 	else
-		std::cout << name + " couldn’t sign " + obj.getName() + " because it hasn't been approved yet" << std::endl;
+	{
+		try {
+			obj.beSigned(*this);
+			std::cout << name + " signed " + obj.getName() << std::endl;
+		}
+		catch (std::exception &e){
+			std::cout << name + " couldn’t sign " + obj.getName() + " because ";
+			std::cout << e.what();
+		}
+	}
 }

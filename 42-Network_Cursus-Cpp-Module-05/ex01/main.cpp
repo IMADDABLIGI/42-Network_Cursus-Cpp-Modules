@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:57:54 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/30 16:36:37 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/01 12:56:37 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,10 @@ int main()
     }
     // { // Testing signForm();
     //     Form A("DAIMOND", 80, 50);
-    //     Bureaucrat B("Maverick", 20);
+    //     Bureaucrat B("Maverick", 90);
     //     std::cout << A;
     //     B.signForm(A);
-    //     A.beSigned(B);
     //     std::cout << A;
-    //     B.signForm(A);
     // }
     // {// Testing Copy Constructor
     //     Form J("Silver", 20, 20);
