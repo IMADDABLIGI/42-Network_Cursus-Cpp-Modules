@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 13:22:49 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/30 13:23:39 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/01 19:50:47 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class RobotomyRequestForm : public AForm
     public:
         RobotomyRequestForm();
         RobotomyRequestForm(std::string Target);
+        RobotomyRequestForm(std::string Name, std::string Target);
         RobotomyRequestForm(const RobotomyRequestForm &org_obj);
         RobotomyRequestForm &operator=(const RobotomyRequestForm &org_obj);
         ~RobotomyRequestForm();

@@ -6,13 +6,15 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 17:17:06 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/01 17:53:48 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/01 20:18:31 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 //----------------------------Constructors----------------------------//
 
@@ -49,15 +51,41 @@ Intern::~Intern()
 //----------------------------Implementations-------------------------//
 //--------------------------------------------------------------------//
 
-AForm   *Intern::makeForm(std::string name, std::string target)
-{
-    AForm* (Intern::*ptr[2]) (std::string name, std::string target);
-    ptr[0] = &Intern::ShrubberyCreation;
-    return ((this->*ptr[0])(name, target));
-}
-
 AForm   *Intern::ShrubberyCreation(std::string name, std::string target)
 {
     AForm *ptr = new ShrubberyCreationForm(name, target);
     return (ptr);
+}
+
+AForm   *Intern::RobotomyRequest(std::string name, std::string target)
+{
+    AForm *ptr = new RobotomyRequestForm(name, target);
+    return (ptr);
+}
+
+AForm   *Intern::PresidentialPardon(std::string name, std::string target)
+{
+    AForm *ptr = new PresidentialPardonForm(name, target);
+    return (ptr);
+}
+
+
+const char* Intern::Form_nameException::what() const throw()
+{
+    return ("Error !!!, The name you provided is not a Form.\n");
+}
+
+AForm   *Intern::makeForm(std::string name, std::string target)
+{
+    AForm* (Intern::*ptr[3]) (std::string name, std::string target) = {&Intern::ShrubberyCreation, &Intern::RobotomyRequest, &Intern::PresidentialPardon};
+    std::string str[3] = {"shrubberycreation", "robotomy request", "presidentialpardon"};
+    for (int i = 0; i < 3; i++)
+    {
+        if (name == str[i])
+        {
+            std::cout << "Intern creates " + name << std::endl;   
+            return ((this->*ptr[i])(name, target));
+        }
+    } 
+    throw (Form_nameException());
 }

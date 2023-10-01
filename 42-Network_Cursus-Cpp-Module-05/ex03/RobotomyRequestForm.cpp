@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 13:24:34 by idabligi          #+#    #+#             */
-/*   Updated: 2023/09/30 13:48:46 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/01 19:50:31 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", "None"
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string Target) : AForm("RobotomyRequestForm", Target, 72, 45)
+{
+	std::cout << "|| RobotomyRequestForm || Constructor called" << std::endl;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string Name, std::string Target) : AForm(Name, Target, 72, 45)
 {
 	std::cout << "|| RobotomyRequestForm || Constructor called" << std::endl;
 }

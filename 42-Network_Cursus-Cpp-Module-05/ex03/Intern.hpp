@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 17:14:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/01 17:45:01 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/01 20:15:44 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ class Intern
 
         AForm   *makeForm(std::string name, std::string target);
         AForm   *ShrubberyCreation(std::string name, std::string target);
+        AForm   *RobotomyRequest(std::string name, std::string target);
+        AForm   *PresidentialPardon(std::string name, std::string target);
+
+        class Form_nameException : public std::exception
+		{
+			public:
+			const char* what() const throw();
+		};
 };
 
 #endif

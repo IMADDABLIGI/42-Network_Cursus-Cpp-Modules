@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 16:10:27 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/01 11:44:45 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/01 19:52:01 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string Target) : AForm("PresidentialPardonForm", Target, 25, 5)
+{
+	std::cout << "|| PresidentialPardonForm || Constructor called" << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string Name, std::string Target) : AForm(Name, Target, 25, 5)
 {
 	std::cout << "|| PresidentialPardonForm || Constructor called" << std::endl;
 }
