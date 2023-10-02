@@ -6,11 +6,11 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 10:31:43 by idabligi          #+#    #+#              #
-#    Updated: 2023/10/01 17:37:39 by idabligi         ###   ########.fr        #
+#    Updated: 2023/10/02 10:16:11 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FORM_28_C
+NAME = Coffee-Making
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
@@ -25,8 +25,6 @@ all : $(NAME)
 
 $(NAME) : $(FO) $(HEADERS)
 	$(CC)  $(FLAGS) $(FO) -o $(NAME)
-	$(RM) $(FO)
-	./$(NAME)
 
 %.o:%.cpp $(HEADERS)
 	$(CC) -c $(FLAGS) $<

@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:11:00 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/01 12:56:50 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/02 11:36:42 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ grade_sign(org_obj.grade_sign) ,grade_exec(org_obj.grade_exec)
 	std::cout << "|| Form || Copy constructor called" << std::endl;
 }
 
-//-----------------------Copy assignmenet Operator--------------------//   TO BE DONE !!!
+//-----------------------Copy assignmenet Operator--------------------//
 
 Form &Form::operator=(const Form &org_obj)
 {
@@ -86,12 +86,12 @@ int Form::check_grade(int Grade)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return "Grade is too High\n";
+	return "Grade is too High.\n";
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low\n";
+	return "Grade is too low.\n";
 }
 
 std::ostream &operator<<(std::ostream &cout, Form &obj)

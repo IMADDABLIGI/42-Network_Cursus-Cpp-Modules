@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 17:17:06 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/01 20:18:31 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:20:41 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,20 @@ Intern::Intern()
 	std::cout << "|| Intern || Default constructor called" << std::endl;
 }
 
-
-
 //-----------------------Copy Constructor-----------------------------//
 
-// Intern::Intern(const Intern &org_obj)
-// {
-// 	std::cout << "|| Intern || Copy constructor called" << std::endl;
-// }
+Intern::Intern(const Intern &org_obj)
+{
+    org_obj.print("|| Intern || Copy constructor called");
+}
 
-// //-----------------------Copy assignmenet Operator--------------------//
+//-----------------------Copy assignmenet Operator--------------------//
 
-// Intern &Intern::operator=(const Intern &org_obj)
-// {
-//     std::cout << "|| Intern || Copy assignment operator called" << std::endl;
-// 	return (*this);
-// }
+Intern &Intern::operator=(const Intern &org_obj)
+{
+    org_obj.print("|| Intern || Copy assignment operator called");
+	return (*this);
+}
 
 //----------------------------Destructors-----------------------------//
 
@@ -69,6 +67,10 @@ AForm   *Intern::PresidentialPardon(std::string name, std::string target)
     return (ptr);
 }
 
+void    Intern::print(std::string str) const
+{
+    std::cout << str << std::endl;
+}
 
 const char* Intern::Form_nameException::what() const throw()
 {
@@ -78,7 +80,7 @@ const char* Intern::Form_nameException::what() const throw()
 AForm   *Intern::makeForm(std::string name, std::string target)
 {
     AForm* (Intern::*ptr[3]) (std::string name, std::string target) = {&Intern::ShrubberyCreation, &Intern::RobotomyRequest, &Intern::PresidentialPardon};
-    std::string str[3] = {"shrubberycreation", "robotomy request", "presidentialpardon"};
+    std::string str[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     for (int i = 0; i < 3; i++)
     {
         if (name == str[i])

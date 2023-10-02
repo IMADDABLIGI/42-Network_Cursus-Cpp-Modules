@@ -6,7 +6,7 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 10:31:43 by idabligi          #+#    #+#              #
-#    Updated: 2023/09/27 10:18:07 by idabligi         ###   ########.fr        #
+#    Updated: 2023/10/02 10:16:30 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,6 @@ all : $(NAME)
 
 $(NAME) : $(FO) $(HEADERS)
 	$(CC)  $(FLAGS) $(FO) -o $(NAME)
-	$(RM) $(FO)
-	./$(NAME)
 
 %.o:%.cpp $(HEADERS)
 	$(CC) -c $(FLAGS) $<

@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 13:24:34 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/01 19:50:31 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/02 09:46:48 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
     if (this->getSign() && (executor.getGrade() <= this->getGrade_exec()))
     {
         std::cout << "<-------| Executing Form RobotomyRequestForm |------->" << std::endl;
+        std::cout << "***Drilling noises***" << std::endl;
         static int num = 2;
         if (!(num % 2))
             std::cout << this->getTarget() + " has been robotomized successfully" << std::endl;
