@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:35:34 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/05 18:01:23 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:31:24 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,27 @@ void    ScalarConverter::intconvert(std::string str)
 void    ScalarConverter::floatconvert(std::string str)
 {
     float num = atof(str.c_str());
+    std::string s;
 
+    if (checkzero(str, 1))
+        s = ".0";
     std::cout << "char: " << "Non displayable" << std::endl;
     std::cout << "int: " << static_cast <int> (num) << std::endl;
-    std::cout << "float: " << num << "f" << std::endl;
-    std::cout << "double: " << static_cast <double> (num) << std::endl;
+    std::cout << "float: " << num << s << "f" << std::endl;
+    std::cout << "double: " << static_cast <double> (num) << s << std::endl;
 }
 
 void    ScalarConverter::doubleconvert(std::string str)
 {
     double num = atof(str.c_str());
+    std::string s;
 
+    if (checkzero(str, 0))
+        s = ".0";
     std::cout << "char: " << "Non displayable" << std::endl;
     std::cout << "int: " << static_cast <int> (num) << std::endl;
-    std::cout << "float: " << static_cast <float> (num) << "f" << std::endl;
-    std::cout << "double: " << num << std::endl;
+    std::cout << "float: " << static_cast <float> (num) << s << "f" << std::endl;
+    std::cout << "double: " << num << s << std::endl;
 }
 
 void    ScalarConverter::charconvert(std::string str)
@@ -77,12 +83,18 @@ void    ScalarConverter::convert(std::string str)
         std::cout << "Error : Invalid Argument !!!" << std::endl;
 }
 
+//--------------------------------------------------//
 
-
-
-
-
-
+bool ScalarConverter::checkzero(std::string str, size_t N)
+{
+    size_t i = 0;
+    size_t pos = str.find('.');
+ 
+    for (i = pos + 1; i < (str.length() - N); i++)
+        if (str[i] != '0')
+            return (false);
+    return (true);
+}
 
 
 

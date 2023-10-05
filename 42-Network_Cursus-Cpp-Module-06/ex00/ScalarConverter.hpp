@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:32:46 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/05 16:55:48 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:28:52 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class ScalarConverter
         static void charconvert(std::string str);
         static void floatconvert(std::string str);
         static void doubleconvert(std::string str);
+        static bool checkzero(std::string str, size_t N);
 };
 
 #endif
