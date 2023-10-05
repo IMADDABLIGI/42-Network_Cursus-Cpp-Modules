@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:32:46 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/05 16:41:07 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:55:48 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <sstream>
 #include <string>
 #include <cstdlib>
+#include <iomanip>
 
 
 class ScalarConverter
