@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 16:27:35 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/06 16:38:28 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/07 10:39:10 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ Serializer::~Serializer()
 }
 
 //----------------------------Implementations-------------------------//
-
 
 uintptr_t Serializer::serialize(Data* ptr)
 {
