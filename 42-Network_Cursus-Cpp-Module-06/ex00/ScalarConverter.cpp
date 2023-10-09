@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:35:34 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/09 13:58:54 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:06:49 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void    ScalarConverter::intconvert(std::string str)
     std::cout << "int: " << num << std::endl;
     if (checkpoint(static_cast <double> (num)))
     {
-        std::cout << "float: " << static_cast <float> (num) << ".0f" << std::endl;
-        std::cout << "double: " << static_cast <double> (num) << ".0" << std::endl;
+        std::cout << "float: " << static_cast <float> (num) << "f" << std::endl;
+        std::cout << "double: " << static_cast <double> (num) << std::endl;
     }
     else
     {
-        std::cout << "float: " << static_cast <float> (num) << "f" << std::endl;
-        std::cout << "double: " << static_cast <double> (num) << std::endl;
+        std::cout << "float: " << static_cast <float> (num) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast <double> (num) << ".0" << std::endl;
     }
 }
 
@@ -68,18 +68,13 @@ void    ScalarConverter::floatconvert(std::string str, int c)
     float num = atof(str.c_str());
     std::string s;
 
+    std::cout << "char: impossible" << std::endl;
+    if (c && num <= MAX_INT && num >= MIN_INT)
+        std::cout << "int: " << static_cast <int> (num) << std::endl;
+    else
+        std::cout << "int: impossible" << std::endl;
     if (checkzero(str, 1))
         s = ".0";
-    if (c)
-    {
-        std::cout << "char: Non displayable" << std::endl;
-        std::cout << "int: " << static_cast <int> (num) << std::endl;
-    }
-    else
-    {   
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-    }
     std::cout << "float: " << num << s << "f" << std::endl;
     std::cout << "double: " << static_cast <double> (num) << s << std::endl;
 }
@@ -89,18 +84,13 @@ void    ScalarConverter::doubleconvert(std::string str, int c)
     double num = atof(str.c_str());
     std::string s;
 
+    std::cout << "char: impossible" << std::endl;
+    if (c && num <= MAX_INT && num >= MIN_INT)
+        std::cout << "int: " << static_cast <int> (num) << std::endl;
+    else
+        std::cout << "int: impossible" << std::endl;
     if (checkzero(str, 0))
         s = ".0";
-    if (c)
-    {
-        std::cout << "char: Non displayable" << std::endl;
-        std::cout << "int: " << static_cast <int> (num) << std::endl;
-    }
-    else
-    {   
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-    }
     std::cout << "float: " << static_cast <float> (num) << s << "f" << std::endl;
     std::cout << "double: " << num << s << std::endl;
 }
@@ -142,13 +132,10 @@ bool    ScalarConverter::isInt(std::string str)
 
 bool    ScalarConverter::isFloat(std::string str)
 {
-    float check;
     if (str[str.length() - 1] == 'f')
-        str[str.length() - 1] = '\0';
+        return (true);
     else 
         return (false);
-    std::stringstream strn(str);
-    return (strn >> check) && strn.eof();
 }
 
 bool    ScalarConverter::isDouble(std::string str)
@@ -197,6 +184,6 @@ bool ScalarConverter::checkpoint(double num)
     str = ss.str();
     for (size_t i = 0; i < str.length(); i++)
         if (str[i] == '.')
-            return (false);
-    return (true);
+            return (true);
+    return (false);
 }

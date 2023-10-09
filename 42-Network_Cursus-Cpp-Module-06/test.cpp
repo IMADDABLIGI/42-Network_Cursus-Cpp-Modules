@@ -6,13 +6,15 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 10:51:45 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/09 12:31:09 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:38:54 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <cstdlib>
+
 
 bool isInteger(const std::string& str) {
     std::stringstream ss(str);
@@ -30,6 +32,7 @@ int main() {
     std::string str1 = "123";
     std::string str2 = "3.14";
     std::string str3 = "Hello";
+    long Long = std::atol("555");
 
     if (isInteger(str2)) {
         std::cout << str2 << " is an integer." << std::endl;

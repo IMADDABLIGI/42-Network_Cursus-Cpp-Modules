@@ -6,18 +6,22 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:32:46 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/09 11:29:37 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:31:46 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
+
 
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <cstdlib>
 #include <iomanip>
+
 
 
 class ScalarConverter
