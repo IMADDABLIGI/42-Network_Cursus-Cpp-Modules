@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:32:46 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/06 10:55:38 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:29:37 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ class ScalarConverter
         static void findconvert(std::string str);
         static bool checkinf(std::string str);
         static bool checkzero(std::string str, size_t N);
+        static bool checkpoint(double num);
+        static bool isInt(std::string str);
+        static bool isFloat(std::string str);
+        static bool isDouble(std::string str);
 };
 
 #endif

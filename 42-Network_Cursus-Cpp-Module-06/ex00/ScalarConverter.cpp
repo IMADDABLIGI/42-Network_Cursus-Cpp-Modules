@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:35:34 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/06 10:55:15 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:58:54 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,21 @@ ScalarConverter::~ScalarConverter()
 void    ScalarConverter::intconvert(std::string str)
 {
     int num = atoi(str.c_str());
-    
-    std::cout << "char: Non displayable" << std::endl;
+    if (num >= 32 && num <= 127)
+        std::cout << "char: " << static_cast <char> (num) << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << num << std::endl;
-    std::cout << "float: " << static_cast <float> (num) << ".0f" << std::endl;
-    std::cout << "double: " << static_cast <double> (num) << ".0" << std::endl;
+    if (checkpoint(static_cast <double> (num)))
+    {
+        std::cout << "float: " << static_cast <float> (num) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast <double> (num) << ".0" << std::endl;
+    }
+    else
+    {
+        std::cout << "float: " << static_cast <float> (num) << "f" << std::endl;
+        std::cout << "double: " << static_cast <double> (num) << std::endl;
+    }
 }
 
 void    ScalarConverter::floatconvert(std::string str, int c)
@@ -103,15 +113,7 @@ void    ScalarConverter::charconvert(std::string str)
     std::cout << "double: " << static_cast <double> (str[0]) << ".0" << std::endl;
 }
 
-void    ScalarConverter::findconvert(std::string str)
-{
-    if (str[str.length() - 1] == 'f')
-        return (floatconvert(str, 1));
-    for (size_t i = 0; i < str.length(); i++)
-        if (str[i] == '.')
-            return (doubleconvert(str, 1));
-    intconvert(str);
-}
+//-----------------------------------------------------------------------------------------//
 
 bool ScalarConverter::checkinf(std::string str)
 {
@@ -124,19 +126,50 @@ bool ScalarConverter::checkinf(std::string str)
     {
         floatconvert(str, 0);
         return true;
-    }   
+    }
     else
         return false;
 }
 
+//-----------------------------------------------------------------------------------------//
+
+bool    ScalarConverter::isInt(std::string str)
+{
+    std::stringstream strn(str);
+    int check;
+    return (strn >> check) && strn.eof();
+}
+
+bool    ScalarConverter::isFloat(std::string str)
+{
+    float check;
+    if (str[str.length() - 1] == 'f')
+        str[str.length() - 1] = '\0';
+    else 
+        return (false);
+    std::stringstream strn(str);
+    return (strn >> check) && strn.eof();
+}
+
+bool    ScalarConverter::isDouble(std::string str)
+{
+    std::stringstream strn(str);
+    double num;
+    return (strn >> num) && strn.eof();
+}
+
+//-----------------------------------------------------------------------------------------//
+
 void    ScalarConverter::convert(std::string str)
 {
-    int num;
-    std::istringstream iss(str);
     if (checkinf(str))
         return ;
-    else if (iss >> num)
-        findconvert(str);
+    if (isInt(str))
+        intconvert(str);
+    else if (isFloat(str))
+        floatconvert(str, 1);
+    else if (isDouble(str))
+        doubleconvert(str, 1);
     else if (str.size() == 1)
         charconvert(str);
     else
@@ -149,9 +182,21 @@ bool ScalarConverter::checkzero(std::string str, size_t N)
 {
     size_t i = 0;
     size_t pos = str.find('.');
- 
+
     for (i = pos + 1; i < (str.length() - N); i++)
         if (str[i] != '0')
+            return (false);
+    return (true);
+}
+
+bool ScalarConverter::checkpoint(double num)
+{
+    std::stringstream ss;
+    std::string str;
+    ss << num;
+    str = ss.str();
+    for (size_t i = 0; i < str.length(); i++)
+        if (str[i] == '.')
             return (false);
     return (true);
 }

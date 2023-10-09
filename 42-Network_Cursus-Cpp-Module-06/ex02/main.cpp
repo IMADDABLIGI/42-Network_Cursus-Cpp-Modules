@@ -6,17 +6,27 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 16:04:22 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/07 16:19:30 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/07 17:33:47 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 int main()
 {
-    Base *ptr;
-    Base A;
-    ptr = A.generate();
-    A.identify(ptr);
-    delete ptr;
+    { // Testing generate() And identify(p);
+        Base *p;
+        Base A;
+        p = A.generate();
+        A.identify(p);
+        delete p;
+    }
+    { // Testing identify(&p);
+        C obj;
+        Base &p = obj;
+        p.identify(p);
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 14:57:33 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/07 16:22:35 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/07 17:22:27 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ Base::~Base()
 }
 
 //---------------------------------------------------------------//
+
+void Base::print(char C)
+{
+    std::cout << "The actual type of the object pointed to by p is : " << C << std::endl;
+}
 
 Base *Base::generate()
 {
@@ -49,28 +54,38 @@ Base *Base::generate()
     return (ptr);
 }
 
+
 void    Base::identify(Base* p)
 {
     A *ptr1;
     B *ptr2;
     C *ptr3;
 
-    ptr1 = dynamic_cast <A*>(p);
-    if (ptr1)
-    {
-        std::cout << "The actual type of the object pointed to by p is : A" << std::endl;
-        return ;
+    
+    if ((ptr1 = dynamic_cast <A*>(p)))
+        ptr1->print('A');
+    else if ((ptr2 = dynamic_cast <B*>(p)))
+        ptr2->print('B');
+    else if ((ptr3 = dynamic_cast <C*>(p)))
+        ptr3->print('C');
+}
+
+void Base::identify(Base& p)
+{
+    try {
+        A &r1 = dynamic_cast <A&>(p);
+        r1.print('A');
     }
-    ptr2 = dynamic_cast <B*>(p);
-    if (ptr2)
+    catch(const std::exception& e)
     {
-        std::cout << "The actual type of the object pointed to by p is : B" << std::endl;
-        return ;
-    }
-    ptr3 = dynamic_cast <C*>(p);
-    if (ptr3)
-    {
-        std::cout << "The actual type of the object pointed to by p is : C" << std::endl;
-        return ;
+        try {
+            B &r2 = dynamic_cast <B&>(p);
+            r2.print('B');
+        }
+        catch(const std::exception& e)
+        {
+            C &r3 = dynamic_cast <C&>(p);
+            r3.print('C');
+        }
     }
 }
