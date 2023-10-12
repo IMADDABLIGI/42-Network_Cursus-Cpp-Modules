@@ -6,29 +6,38 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:04:27 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/12 13:14:11 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:04:06 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+#include "iter.hpp"
+
+template <typename A>
+void    print(A const &X)
+{
+    std::cout << X << std::endl;
+}
+
+void    toUpperPrint(std::string const &X)
+{
+    for(size_t i = 0; i < X.length(); i++)
+    {
+        if (X[i] >= 97 && X[i] <= 122)
+            std::cout << static_cast<char>(X[i] - 32);
+        else
+            std::cout << X[i];
+    }
+}
 
 int main()
 {
-    int a = 2;
-    int b = 3;
-    
-    ::swap( a, b );
-    std::cout << "a = " << a << ", b = " << b << std::endl;
-    std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-    std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-    
-    std::string c = "chaine1";
-    std::string d = "chaine2";
-    
-    ::swap(c, d);
-    std::cout << "c = " << c << ", d = " << d << std::endl;
-    std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-    
+    {
+        int arr[] = {20, 50, 10, 5, 77};
+        iter(arr, 5, print);
+    }
+    {
+        std::string str[] = {"hello ", ",how are you \n", "C++ is BETTER than C\n"};
+        iter(str, 3, toUpperPrint);
+    }
     return (0);
 }
