@@ -6,11 +6,11 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/05 11:40:08 by idabligi          #+#    #+#              #
-#    Updated: 2023/10/13 17:33:33 by idabligi         ###   ########.fr        #
+#    Updated: 2023/10/14 13:14:21 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = Array
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98

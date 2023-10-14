@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 17:11:11 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/14 10:58:38 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/14 13:10:48 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Array
         
         unsigned int size();
         T           *getPtr();
-        T &operator[] (unsigned int n);
+        const T &operator[] (unsigned int n);
         class BracketsException : public std::exception
 		{
 			public:
@@ -87,7 +87,7 @@ Array<T> &Array<T>::operator=(const Array<T> &org_obj)
 }
 
 template <typename T>
-T &Array<T>::operator[](unsigned int n)
+const T &Array<T>::operator[](unsigned int n)
 {
     std::cout << "|| Array || Brackets operator called" << std::endl;
     if (n >= len || this->ptr == NULL)
@@ -99,13 +99,15 @@ T &Array<T>::operator[](unsigned int n)
 
 template <typename T>
 Array<T>::~Array(){
-    std::cout << "|| Array || Destructor called" << std::endl; }
+    std::cout << "|| Array || Destructor called" << std::endl; 
+    delete this->ptr;
+}
 
 //----------------------------Implementations-------------------------//
 
 template <typename T>
 const char*    Array<T>::BracketsException::what() const throw(){
-    return "Error invalid Index"; }
+    return "Error invalid Index !"; }
 
 template <typename T>
 unsigned int Array<T>::size(){   
