@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 17:11:11 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/13 18:17:23 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/14 10:58:38 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Array
         ~Array();
         
         unsigned int size();
+        T           *getPtr();
         T &operator[] (unsigned int n);
         class BracketsException : public std::exception
 		{
@@ -48,19 +49,13 @@ Array<T>::Array() : ptr(NULL), len(0)
 }
 
 template <typename T>
-Array<T>::Array(unsigned int n)
+Array<T>::Array(unsigned int n) : len(n)
 {
     std::cout << "|| Array || Constructor called" << std::endl;
-
-    len = n;
     if (!len)
         ptr = NULL;
     else
-    {   
-        this->ptr = new T[n];
-        for (unsigned int i = 0; i < len; i++)
-            std::cout << ptr[i] << std::endl;
-    }
+        ptr = new T[n];
 }
 
 //-----------------------Copy Constructor-----------------------------//
@@ -92,7 +87,7 @@ Array<T> &Array<T>::operator=(const Array<T> &org_obj)
 }
 
 template <typename T>
-T &Array<T>::operator[] (unsigned int n)
+T &Array<T>::operator[](unsigned int n)
 {
     std::cout << "|| Array || Brackets operator called" << std::endl;
     if (n >= len || this->ptr == NULL)
@@ -115,5 +110,10 @@ const char*    Array<T>::BracketsException::what() const throw(){
 template <typename T>
 unsigned int Array<T>::size(){   
     return (this->len);}
+
+template <typename T>
+T *Array<T>::getPtr(){
+    return (ptr);
+}
 
 #endif
