@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:04:27 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/14 13:14:05 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/14 15:12:32 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int main()
     //     Array<int> I(7);
     //     Array<int> N(50);
     //     N = I;
+    //     N[0] = 77;
+    //     std::cout << N[0] << std::endl;
     //     std::cout << N.size() << std::endl;
     // }
     return (0);

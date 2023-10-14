@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 17:11:11 by idabligi          #+#    #+#             */
-/*   Updated: 2023/10/14 13:10:48 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/10/14 14:37:03 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ class Array
         
         unsigned int size();
         T           *getPtr();
-        const T &operator[] (unsigned int n);
+        T &operator[] (unsigned int n);
+        const T &operator[] (unsigned int n) const ;
         class BracketsException : public std::exception
 		{
 			public:
@@ -87,7 +88,16 @@ Array<T> &Array<T>::operator=(const Array<T> &org_obj)
 }
 
 template <typename T>
-const T &Array<T>::operator[](unsigned int n)
+T &Array<T>::operator[](unsigned int n)
+{
+    std::cout << "|| Array || Brackets operator called" << std::endl;
+    if (n >= len || this->ptr == NULL)
+        throw (Array<T>::BracketsException());
+    return (this->ptr[n]);
+}
+
+template <typename T>
+const T &Array<T>::operator[](unsigned int n) const
 {
     std::cout << "|| Array || Brackets operator called" << std::endl;
     if (n >= len || this->ptr == NULL)

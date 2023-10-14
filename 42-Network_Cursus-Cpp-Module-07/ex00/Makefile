@@ -6,11 +6,11 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/05 11:40:08 by idabligi          #+#    #+#              #
-#    Updated: 2023/10/12 11:18:06 by idabligi         ###   ########.fr        #
+#    Updated: 2023/10/14 14:07:49 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = Template
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
