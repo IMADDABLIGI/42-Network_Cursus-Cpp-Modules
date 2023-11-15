@@ -6,20 +6,20 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:21:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/11/14 14:07:22 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:14:22 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 
-void    leak()
-{
-    system("leaks Easy_Find");
-}
+// void    leak()
+// {
+//     system("leaks Easy_Find");
+// }
 
 int main()
 {
-    atexit(leak);
+    // atexit(leak);
     // {
     //     std::vector<int> vec;
     //     vec.push_back(10);
