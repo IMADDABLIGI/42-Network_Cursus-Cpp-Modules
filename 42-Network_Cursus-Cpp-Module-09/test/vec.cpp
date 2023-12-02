@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:24:51 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/02 15:01:07 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/02 19:51:28 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <deque>
 #include <array>
 #include <list>
+#include <set>
 #include <iostream>
 
 int main()
@@ -61,37 +62,33 @@ int main()
     //     std::cout << "Begin :: " << arr.begin() << std::endl;
     //     std::cout << arr.end() << std::endl;
     // }
-    {
-          std::list<int> lt;
-          lt.push_back(20);
-          lt.push_back(3);
-          lt.push_back(-4);
-          lt.push_back(334);
-          lt.push_back(-444);
-          lt.sort();
-          std::list<int>::iterator it;
-          it = lt.begin();
-          std::cout << *it << std::endl;
-          lt.pop_front();
-          std::cout << *it << std::endl;
-
-          for(it = lt.begin(); it != lt.end(); it++)
-            std::cout << *it << std::endl;
-    }
     // {
-    //     std::set<int> set; 
-    //     // Inserting elements into the set
-    //     set.insert(2);
-    //     set.insert(5);
-    //     set.insert(3);
+    //       std::list<int> lt;
+    //       lt.push_back(20);
+    //       lt.push_back(3);
+    //       lt.push_back(-4);
+    //       lt.push_back(334);
+    //       lt.push_back(-444);
+    //       lt.sort();
+    //       std::list<int>::iterator it = lt.begin();
+    //       std::advance(it, 1);
+    //       lt.erase(it);
+    //       for (it = lt.begin(); it != lt.end(); it++)
+    //         std::cout << *it << std::endl;
+    // }
+    {
+        std::set<int> set; 
+        // Inserting elements into the set
+        set.insert(2);
+        set.insert(5);
+        set.insert(3);
+        set.insert(3);
 
-    //     std::set<int>::iterator it;
-    //     for (it = set.begin(); it != set.end(); it++)
-    //     {
-    //         std::cout << *it << " ";
-    //     }
-    //     std::cout << std::endl;
-    //     }
+        std::set<int>::iterator it;
+        for (it = set.begin(); it != set.end(); it++)
+            std::cout << *it << " ";
+        std::cout << std::endl;
+        }
     // {
     //     std::map<std::string, int> map;
 
