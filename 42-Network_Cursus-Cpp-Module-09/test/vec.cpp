@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:24:51 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/02 20:48:24 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/03 11:01:08 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,47 +100,3 @@
     //         std::cout << it->first << " " << it->second << std::endl;
     // }
 // }
-
-    class Person {
-    public:
-        Person(const std::string& name, int age) : name_(name), age_(age) {}
-
-
-        Person(const Person &org_obj)
-        {
-	        std::cout << "|| Span || Copy constructor called" << std::endl;
-            this->age_ = org_obj.age_;
-            this->name_ = org_obj.name_;
-        }
-        std::string getName() const {
-            return name_;
-        }
-        
-        int getAge() const {
-            return age_;
-        }
-
-        // Custom comparison operator for sorting
-        bool operator<(const Person& other) const {
-            return age_ < other.age_;
-        }
-
-    private:
-        std::string name_;
-        int age_;
-    };
-
-int main() {
-    
-    std::set<Person> personSet;
-    // personSet.emplace("Alice", 25);
-    // personSet.emplace("HOL", 85);
-    // personSet.emplace("Fas", 70);
-
-    // Iterate over the set and print the elements
-    std::set<Person>::iterator it;
-    for (it = personSet.begin(); it != personSet.end(); it++)
-        std::cout << "the Name : " << it->getName() + " he's age is :" << it->getAge() << std::endl;
-
-    return 0;
-}
