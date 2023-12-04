@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:24:51 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/03 14:37:19 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/04 10:34:28 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,15 +137,23 @@ int main()
     //         std::cout << *it << " ";
     //     std::cout << std::endl;
     //     }
+    // {
+    //     std::map<std::string, int> map;
+    //     map["YEAR"] = 1943;
+    //     map["MODEL"] = 55;
+    //     map.insert(std::make_pair("CLASS", 2));
+    //     std::cout << "--" << map["YEAR"] << "--" << std::endl;
+    //     std::map<std::string, int>::iterator it;
+    //     for(it = map.begin(); it != map.end(); it++)
+    //         std::cout << it->first << " " << it->second << std::endl;
+    // }
     {
         std::map<std::string, std::vector<int> > map;
         map["RABAT"].push_back(1);
         map["JADIDA"].push_back(55);
         map["KHOURIBGA"].push_back(57);
         map["CASABLANCA"].push_back(72);
-        map["CASABLANCA"].push_back(9);
         map["TANGER"].push_back(40);
-        map["CASABLANCA"].push_back(8);
         map["CASABLANCA"].push_back(6);
         map["BERRCHID"].push_back(81);
         std::map<std::string, std::vector<int> >::iterator it;
@@ -154,8 +162,7 @@ int main()
             std::cout << it->first << " : ";
             for (std::vector<int>::iterator it2 = it->second.begin(); it2 != it->second.end(); it2++)
                 std::cout << *it2 << " ";
-            std::cout << std::endl;  
+            std::cout << std::endl;
         }
-            // std::cout << it->first << " -> " << it->second << std::endl;
     }
 }
