@@ -6,7 +6,7 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/04 14:42:14 by idabligi          #+#    #+#              #
-#    Updated: 2023/12/04 17:01:07 by idabligi         ###   ########.fr        #
+#    Updated: 2023/12/05 11:20:09 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all : $(NAME)
 
 $(NAME) : $(FO) $(HEADERS)
 	$(CC) $(FLAGS) $(FO) -o $(NAME)
-	./$(NAME)
+	./$(NAME) input.txt
 
 %.o:%.cpp $(HEADERS)
 	$(CC) -c $(FLAGS) $<

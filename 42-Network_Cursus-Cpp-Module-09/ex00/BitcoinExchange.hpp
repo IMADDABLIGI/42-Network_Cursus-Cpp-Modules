@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:43 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/04 17:40:50 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:04:53 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <sstream>
+#include <string>
 #include <fstream>
 #include <map>
 
@@ -30,9 +32,10 @@ class BitcoinExchange
         BitcoinExchange &operator=(const BitcoinExchange &org_obj);
         ~BitcoinExchange();
 
-        void    fillMap();
+        void    getData();
+        void    execute(std::string arg);
         void    ft_error(std::string err);
-        
+        bool    parseLine(std::string line);
         
         
         class ErrorException : public std::exception
