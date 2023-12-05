@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:43 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/05 12:04:53 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:38:40 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@
 class BitcoinExchange
 {
     private:
-        float value;
+        double _dvalue;
         std::string key;
-        std::map<std::string, float> map;
+        std::string _date;
+        double      _value;
+        std::map<std::string, double> map;
 
     public:
         BitcoinExchange();
@@ -36,7 +38,9 @@ class BitcoinExchange
         void    execute(std::string arg);
         void    ft_error(std::string err);
         bool    parseLine(std::string line);
-        
+        bool    checkDate(std::string date);
+        bool    checkValue(std::stringstream &sstr);
+        void    exchangeRate();
         
         class ErrorException : public std::exception
 		{

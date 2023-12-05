@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:25 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/05 14:20:32 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:39:15 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void   BitcoinExchange::getData()
     while (std::getline(data, line))
     {
         key = line.substr(0, 10);
-        value = atof(line.substr(11).c_str());
-        this->map[key] = value;
+        _dvalue = atof(line.substr(11).c_str());
+        this->map[key] = _dvalue;
     }
     // for (std::map<std::string, float>::iterator it = map.begin(); it != map.end(); it++)
     //     std::cout << it->first << " | " << it->second << std::endl;
@@ -85,7 +85,7 @@ void   BitcoinExchange::getData()
 
 //--------------------------------------------------------------------------------------------------//
 
-bool    checkDate(std::string date)
+bool   BitcoinExchange::checkDate(std::string date)
 {
     std::stringstream sstr(date);
     int year, month, day;
@@ -100,7 +100,27 @@ bool    checkDate(std::string date)
     if (((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
         || ((month == 2) && (day > 28)))
         return false;
+    this->_date = date;
     return true;
+}
+
+bool    BitcoinExchange::checkValue(std::stringstream &sstr)
+{
+    std::string str;
+    sstr >> str;
+    if (str != "|")
+        return (std::cout << "Error: bad separation <|>." << std::endl, false);
+    sstr >> _value;
+    
+    if (!sstr.eof())
+        return (std::cout << "Error: bad value." << std::endl ,false);
+        
+    if (_value < 0)
+        return ( std::cout << "Error: not a positive number." << std::endl, false);
+        
+    if (_value > 1000)
+        return (std::cout << "Error: too large a number." << std::endl, false);
+    return (true);
 }
 
 bool    BitcoinExchange::parseLine(std::string line)
@@ -109,18 +129,20 @@ bool    BitcoinExchange::parseLine(std::string line)
     std::string str;
     sstr >> str;
     if (!checkDate(str))
-    {
-        std::cout << "Error: : bad input => " << str << std::endl;
-        return false;   
-    }
-    else
-        std::cout << "Valid Date : " << str << std::endl;
+        return (std::cout << "Error: : bad input => " << str << std::endl ,false);
+    if (!checkValue(sstr))
+        return false;
     return true;
 }
 
-
 //--------------------------------------------------------------------------------------------------//
 
+
+// void    BitcoinExchange::exchangeRate()
+// {
+//     std::map<std::string, double>::iterator it = map.lower_bound(_date);
+//     std::cout << _date << " " << it->first << std::endl;
+// }
 
 void    BitcoinExchange::execute(std::string arg)
 {
@@ -135,43 +157,6 @@ void    BitcoinExchange::execute(std::string arg)
         if (!this->parseLine(line))
             continue;
         else
-            continue;
+            exchangeRate();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-// std::stringstream iss(date);
-
-//     int year, month, day;
-//     char delimiter1, delimiter2;
-
-//     // Attempt to extract the components of the date
-//     if (!(iss >> year >> delimiter1 >> month >> delimiter2 >> day))
-//     {
-//         std::cout << year << " " << delimiter1 << " " << month << " " << delimiter2 << " " << day << std::endl;   
-//         return false;
-//     }
-//     std::cout << year << " " << delimiter1 << " " << month << " " << delimiter2 << " " << day << std::endl;
-//     // Check if the extraction was successful and the delimiters are correct
-//     if (iss.fail() || delimiter1 != '-' || delimiter2 != '-')
-//         return false;
-
-//     // Check if the components fall within valid ranges
-//     if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
-//         return false;
-
-//     // Check for specific month and day validity
-//     if ((month == 2 && day > 29) ||
-//         ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30))
-//         return false;
-
-//     return true;
