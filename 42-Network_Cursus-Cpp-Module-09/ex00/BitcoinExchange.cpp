@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:25 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/05 17:39:15 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:57:14 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,12 @@
 //----------------------------Constructors----------------------------//
 
 BitcoinExchange::BitcoinExchange()
-{
-	std::cout << "|| BitcoinExchange || Default constructor called" << std::endl;
-}
+{}
 
 //-----------------------Copy Constructor-----------------------------//
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &org_obj)
 {
-	std::cout << "|| BitcoinExchange || Copy constructor called" << std::endl;
     *this = org_obj;
 }
 
@@ -31,10 +28,11 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &org_obj)
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &org_obj)
 {
-    std::cout << "|| BitcoinExchange || Copy assignment operator called" << std::endl;
     if (this != &org_obj)
     {
-        //
+        this->_date = org_obj._date;
+        this->_value = org_obj._value;
+        this->map = org_obj.map;
     }
 	return (*this);
 }
@@ -42,9 +40,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &org_obj)
 //----------------------------Destructors-----------------------------//
 
 BitcoinExchange::~BitcoinExchange()
-{
-	std::cout << "|| BitcoinExchange || Destructor called" << std::endl;
-}
+{}
 
 //--------------------------------------------------------------------//
 //----------------------------Implementations-------------------------//
@@ -56,8 +52,7 @@ void    BitcoinExchange::ft_error(std::string err){
 }
 
 
-BitcoinExchange::ErrorException::ErrorException(const char *err) : err_(err)
-{}
+BitcoinExchange::ErrorException::ErrorException(const char *err) : err_(err){}
 
 const char *BitcoinExchange::ErrorException::what() const throw(){
     return (err_);}
@@ -68,6 +63,8 @@ void   BitcoinExchange::getData()
 {
     std::ifstream data("data.csv");
     std::string line;
+    double value;
+    std::string key;
 
     if (!data.is_open())
         throw BitcoinExchange::ErrorException("Error: opening Database file !!!\n");
@@ -76,14 +73,12 @@ void   BitcoinExchange::getData()
     while (std::getline(data, line))
     {
         key = line.substr(0, 10);
-        _dvalue = atof(line.substr(11).c_str());
-        this->map[key] = _dvalue;
+        value = atof(line.substr(11).c_str());
+        this->map[key] = value;
     }
-    // for (std::map<std::string, float>::iterator it = map.begin(); it != map.end(); it++)
-    //     std::cout << it->first << " | " << it->second << std::endl;
 }
 
-//--------------------------------------------------------------------------------------------------//
+//--------------------------------------------------PARSING--------------------------------------------------//
 
 bool   BitcoinExchange::checkDate(std::string date)
 {
@@ -137,12 +132,13 @@ bool    BitcoinExchange::parseLine(std::string line)
 
 //--------------------------------------------------------------------------------------------------//
 
-
-// void    BitcoinExchange::exchangeRate()
-// {
-//     std::map<std::string, double>::iterator it = map.lower_bound(_date);
-//     std::cout << _date << " " << it->first << std::endl;
-// }
+void    BitcoinExchange::exchangeRate()
+{
+    std::map<std::string, double>::iterator it = map.lower_bound(_date);
+    if (_date != it->first && (it != map.begin()))
+        it--;
+    std::cout << _date << " => " << _value << " = " << it->second*_value << std::endl;
+}
 
 void    BitcoinExchange::execute(std::string arg)
 {
