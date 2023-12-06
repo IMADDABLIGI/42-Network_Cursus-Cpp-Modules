@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:25 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/05 17:57:14 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/05 18:06:10 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void    BitcoinExchange::ft_error(std::string err){
 BitcoinExchange::ErrorException::ErrorException(const char *err) : err_(err){}
 
 const char *BitcoinExchange::ErrorException::what() const throw(){
-    return (err_);}
+    return (err_);
+}
 
 //--------------------------------------------------------------------------------------------------//
 
@@ -63,13 +64,13 @@ void   BitcoinExchange::getData()
 {
     std::ifstream data("data.csv");
     std::string line;
-    double value;
     std::string key;
+    double value;
 
     if (!data.is_open())
-        throw BitcoinExchange::ErrorException("Error: opening Database file !!!\n");
+        throw BitcoinExchange::ErrorException("Error: opening Database file !\n");
     if (!std::getline(data, line))
-        throw BitcoinExchange::ErrorException("Error: data file is empty !!!\n");
+        throw BitcoinExchange::ErrorException("Error: data file is empty !\n");
     while (std::getline(data, line))
     {
         key = line.substr(0, 10);
@@ -145,9 +146,9 @@ void    BitcoinExchange::execute(std::string arg)
     std::ifstream input(arg);
     std::string line;
     if (!input.is_open())
-        throw BitcoinExchange::ErrorException("Error: opening input file !!!\n");
+        throw BitcoinExchange::ErrorException("Error: opening input file !\n");
     if (!std::getline(input, line))
-        throw BitcoinExchange::ErrorException("Error: input file is empty !!!\n");       
+        throw BitcoinExchange::ErrorException("Error: input file is empty !\n");
     while (std::getline(input, line))
     {
         if (!this->parseLine(line))

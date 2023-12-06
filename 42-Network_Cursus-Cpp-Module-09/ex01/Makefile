@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/04 14:42:14 by idabligi          #+#    #+#              #
-#    Updated: 2023/12/05 18:10:04 by idabligi         ###   ########.fr        #
+#    Created: 2023/12/06 11:29:25 by idabligi          #+#    #+#              #
+#    Updated: 2023/12/06 11:29:41 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = btc
+NAME = RPN
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
-HEADERS = BitcoinExchange.hpp
+HEADERS = RPN.hpp
 
-FL = main BitcoinExchange\
+FL = main RPN\
 
 FO = $(FL:=.o)
 
