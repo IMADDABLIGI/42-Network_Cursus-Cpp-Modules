@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:52:43 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/07 10:08:15 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/07 18:16:00 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void    abort(){
 
 void    RPN::calculate(std::string c)
 {
-    int val1, val2;
+    float val1, val2;
     if (this->st.size() < 2)
         abort();
     val1 = st.top();
@@ -116,6 +116,8 @@ bool    RPN::execute(std::string str)
         else
             this->st.push(std::atoi(c.c_str()));
     }
+    if (st.size() != 1)
+            return (std::cout << "Error" << std::endl, false);
     std::cout << st.top() << std::endl;
     return true;
 }

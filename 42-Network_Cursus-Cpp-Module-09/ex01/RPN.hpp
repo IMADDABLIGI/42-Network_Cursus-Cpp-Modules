@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:54:31 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/07 09:57:22 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/07 18:14:43 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 class RPN
 {
     private:
-        std::stack<int> st;
+        std::stack<float> st;
 
     public:
         RPN();
