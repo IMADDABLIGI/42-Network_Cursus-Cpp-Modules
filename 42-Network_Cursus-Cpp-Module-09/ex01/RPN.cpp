@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:52:43 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/07 09:59:05 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:08:15 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,8 @@ bool    RPN::execute(std::string str)
 
     while (!sstr.eof())
     {
-        sstr >> c;
+        if (!(sstr >> c))
+            return (std::cout << "Error" << std::endl, false);
         if  (c == "+" || c == "-" || c == "*" || c == "/")
             calculate(c);
         else
