@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:54:31 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/06 15:06:48 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/07 09:57:22 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class RPN
         bool    parse(std::string str);
         bool    execute(std::string str);
         void    calculate(std::string c);
+        int     top();
 };
 
 #endif
