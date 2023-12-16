@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:25 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/16 15:03:21 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/16 15:12:48 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,13 +106,10 @@ bool    BitcoinExchange::checkValue(std::stringstream &sstr)
     sstr >> str;
     if (str != "|")
         return (std::cout << "Error: bad separation <|>." << std::endl, false);
-    
     if (!(sstr >> _value) || !sstr.eof())
         return (std::cout << "Error: bad value." << std::endl ,false);
-        
     if (_value < 0)
         return ( std::cout << "Error: not a positive number." << std::endl, false);
-        
     if (_value > 1000)
         return (std::cout << "Error: too large a number." << std::endl, false);
     return (true);
@@ -137,7 +134,7 @@ void    BitcoinExchange::exchangeRate()
     std::map<std::string, double>::iterator it = map.lower_bound(_date);
     if (_date != it->first && (it != map.begin()))
         it--;
-    std::cout << _date << " => " << _value << " = " << (it->second*_value) << std::endl;
+    std::cout << _date << " => " << _value << " = " << (it->second * _value) << std::endl;
 }
 
 void    BitcoinExchange::execute(std::string arg)
