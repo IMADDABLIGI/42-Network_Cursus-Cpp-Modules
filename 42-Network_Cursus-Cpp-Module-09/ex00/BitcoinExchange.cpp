@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:25 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/16 15:12:48 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/16 17:54:07 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,12 @@ bool   BitcoinExchange::checkDate(std::string date)
     if (year < 1 || month < 1 || month > 12 || day < 1 || day > 31)
         return false;
     if (((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
-        || ((month == 2) && (day > 28)))
-        return false;
+        || ((month == 2) && (day > 29)))
+            return false;
+    if (month == 2 && day == 29) {
+        if ((year % 4 != 0) || (year % 100 == 0 && year % 400 != 0))
+            return false;
+    }
     this->_date = date;
     return true;
 }
@@ -145,6 +149,8 @@ void    BitcoinExchange::execute(std::string arg)
         throw BitcoinExchange::ErrorException("Error: opening input file !\n");
     if (!std::getline(input, line))
         throw BitcoinExchange::ErrorException("Error: input file is empty !\n");
+    if (line != "date | value")
+        throw BitcoinExchange::ErrorException("Error: input file headear !\n");
     while (std::getline(input, line))
     {
         if (!this->parseLine(line))
