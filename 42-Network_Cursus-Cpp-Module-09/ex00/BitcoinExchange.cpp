@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:25 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/05 18:06:10 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/16 15:03:21 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ bool   BitcoinExchange::checkDate(std::string date)
     
     if (!(sstr >> year >> hp1 >> month >> hp2 >> day))
         return false;
-    if (sstr.fail() || hp1 != '-' || hp2 != '-')
+    if (hp1 != '-' || hp2 != '-')
         return false;
     if (year < 1 || month < 1 || month > 12 || day < 1 || day > 31)
         return false;
@@ -100,15 +100,14 @@ bool   BitcoinExchange::checkDate(std::string date)
     return true;
 }
 
-bool    BitcoinExchange::checkValue(std::stringstream &sstr)
+bool    BitcoinExchange::checkValue(std::stringstream &sstr) 
 {
     std::string str;
     sstr >> str;
     if (str != "|")
         return (std::cout << "Error: bad separation <|>." << std::endl, false);
-    sstr >> _value;
     
-    if (!sstr.eof())
+    if (!(sstr >> _value) || !sstr.eof())
         return (std::cout << "Error: bad value." << std::endl ,false);
         
     if (_value < 0)
@@ -138,7 +137,7 @@ void    BitcoinExchange::exchangeRate()
     std::map<std::string, double>::iterator it = map.lower_bound(_date);
     if (_date != it->first && (it != map.begin()))
         it--;
-    std::cout << _date << " => " << _value << " = " << it->second*_value << std::endl;
+    std::cout << _date << " => " << _value << " = " << (it->second*_value) << std::endl;
 }
 
 void    BitcoinExchange::execute(std::string arg)

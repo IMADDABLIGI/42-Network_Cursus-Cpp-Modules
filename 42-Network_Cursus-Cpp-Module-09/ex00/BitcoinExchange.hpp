@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:43 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/05 17:52:00 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/16 14:29:13 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ class BitcoinExchange
         class ErrorException : public std::exception
 		{
             private:
-                const char * err_;
+                const char *err_;
 			public:
-            ErrorException(const char *err);
-			const char* what() const throw();
+                ErrorException(const char *err);
+			    const char* what() const throw();
 		};
 };
 

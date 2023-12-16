@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:52:43 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/07 18:16:00 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/16 11:20:40 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,3 +121,4 @@ bool    RPN::execute(std::string str)
     std::cout << st.top() << std::endl;
     return true;
 }
+  
