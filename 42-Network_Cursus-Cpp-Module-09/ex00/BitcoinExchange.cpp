@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:25 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/17 10:37:54 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/17 11:15:17 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,8 @@ bool    BitcoinExchange::parseLine(std::string line)
 {
     std::stringstream sstr(line);
     std::string str;
-    sstr >> str;
+    if (!(sstr >> str))
+        return (std::cout << "Error: : bad line" << str << std::endl ,false);
     if (!checkDate(str))
         return (std::cout << "Error: : bad input => " << str << std::endl ,false);
     if (!checkValue(sstr))
