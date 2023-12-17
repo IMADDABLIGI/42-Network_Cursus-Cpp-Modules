@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:51:05 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/17 18:14:26 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:48:57 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class PmergeMe
 {
     private:
         std::vector<int> vc;
-        // int rem; //remaining if we have an odd integers;
+        std::vector <std::pair<int,int> > pr;
+        int rem; //remaining if we have an odd integers;
 
     public:
         PmergeMe();
@@ -32,7 +33,8 @@ class PmergeMe
         ~PmergeMe();
 
 
-        bool parse(char **av, int range);
+        void    makePairs();
+        bool    parse(char **av, int range);
 };
 
 #endif
