@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:43:25 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/16 17:54:07 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/17 10:37:54 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ const char *BitcoinExchange::ErrorException::what() const throw(){
 void   BitcoinExchange::getData()
 {
     std::ifstream data("data.csv");
-    std::string line;
-    std::string key;
-    double value;
+    std::string   line;
+    std::string   key;
+    double        value;
 
     if (!data.is_open())
         throw BitcoinExchange::ErrorException("Error: opening Database file !\n");
@@ -84,7 +84,7 @@ void   BitcoinExchange::getData()
 bool   BitcoinExchange::checkDate(std::string date)
 {
     std::stringstream sstr(date);
-    int year, month, day;
+    int  year, month, day;
     char hp1, hp2;
     
     if (!(sstr >> year >> hp1 >> month >> hp2 >> day))
