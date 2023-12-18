@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:50:49 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/18 11:20:13 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:57:31 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ int main(int ac, char **av)
     obj.makePairs();
     obj.sortEachPairs();
     obj.sortPairs();
+    obj.splitPairs();
 }

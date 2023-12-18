@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:55:50 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/18 13:25:35 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:01:35 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void    PmergeMe::makePairs()
     for (size_t i = 0; i < vc.size(); i += 2)
         pr.push_back(std::make_pair(vc[i], vc[i+1]));
     std::vector < std::pair<int,int> >::iterator it;
-    // for (it = pr.begin(); it != pr.end(); it++)
-    //     std::cout << it->first << " " << it->second << std::endl;
 }
 
 void    PmergeMe::sortEachPairs()
@@ -122,12 +120,20 @@ void    PmergeMe::sortPairs()
         for (it = pr.begin(); it != pr.end(); it++)
         {
             for (itn = it + 1; itn != pr.end(); itn++)
-            {
                 if (it->second > itn->second)
                     swapPairs(it, itn);
-            }
         }
     }
     for (it = pr.begin(); it != pr.end(); it++)
         std::cout << it->first << " " << it->second << std::endl;
+}
+
+void    PmergeMe::splitPairs()
+{
+    std::vector<std::pair<int, int> >::iterator it;
+    for (it = pr.begin(); it != pr.end(); it++)
+    {
+        pnd.push_back(it->first);
+        seq.push_back(it->second);
+    }
 }

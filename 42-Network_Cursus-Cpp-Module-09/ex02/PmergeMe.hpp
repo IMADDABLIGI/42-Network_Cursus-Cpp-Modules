@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:51:05 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/18 11:45:41 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:00:47 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class PmergeMe
 {
     private:
         std::vector<int> vc;
+        std::vector<int> seq;
+        std::vector<int> pnd;
         std::vector <std::pair<int,int> > pr;
         int rem; //remaining if we have an odd integers;
 
@@ -35,6 +37,7 @@ class PmergeMe
 
         void    makePairs();
         void    sortPairs();
+        void    splitPairs();
         void    sortEachPairs();
         void    swapPairs(std::vector<std::pair<int,int> >::iterator &it, std::vector<std::pair<int,int> >::iterator &itn);
         bool    checkSortPairs();
