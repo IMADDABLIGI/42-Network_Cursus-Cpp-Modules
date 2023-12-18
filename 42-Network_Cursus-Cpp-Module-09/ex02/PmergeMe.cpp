@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:55:50 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/17 19:58:00 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/18 10:56:24 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ bool PmergeMe::parse(char **av, int range)
         sstr.clear();
         this->vc.push_back(vl);
     }
-    this->rem = 0;
+    this->rem = -1;
     return true;
 }
 
@@ -67,6 +67,49 @@ void    PmergeMe::makePairs()
     for (size_t i = 0; i < vc.size(); i += 2)
         pr.push_back(std::make_pair(vc[i], vc[i+1]));
     std::vector < std::pair<int,int> >::iterator it;
-    for (it = pr.begin(); it != pr.end(); it++)
-        std::cout << it->first << " " << it->second << "\n";
+    // for (it = pr.begin(); it != pr.end(); it++)
+    //     std::cout << it->first << " " << it->second << std::endl;
 }
+
+void    PmergeMe::sortEachPairs()
+{
+    int tmp;
+    std::vector<std::pair<int,int> >::iterator it;
+    
+    for (it = pr.begin(); it != pr.end(); it++)
+    {
+        if (it->first > it->second)
+        {
+            tmp = it->first;
+            it->first = it->second;
+            it->second = tmp;
+        }
+    }
+    for (it = pr.begin(); it != pr.end(); it++)
+        std::cout << it->first << " " << it->second << std::endl;
+}
+
+// bool    PmergeMe::checkSortPairs()
+// {
+//     std::vector<std::pair<int, int> >::iterator it;
+//     std::vector<std::pair<int, int> >::iterator itn;
+//     for (it = pr.begin(); it != pr.end(); it++)
+//     {
+//         for (itn = pr.begin() + 1; itn != pr.end(); itn++)
+//             if (it->second < itn->second)
+//                 return (false);
+//     }
+//     return true;
+// }
+
+
+// void    PmergeMe::sortPairs()
+// {
+//     int tmp1, tmp2;
+//     std::vector<std::pair<int,int> >::iterator it;
+    
+//     // while (!checkSortPairs())
+//     // {
+        
+//     // }
+// }

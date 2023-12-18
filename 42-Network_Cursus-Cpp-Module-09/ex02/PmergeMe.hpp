@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:51:05 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/17 19:48:57 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/18 10:55:34 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ class PmergeMe
 
 
         void    makePairs();
+        void    sortPairs();
+        void    sortEachPairs();
+        bool    checkSortPairs();
         bool    parse(char **av, int range);
 };
 
