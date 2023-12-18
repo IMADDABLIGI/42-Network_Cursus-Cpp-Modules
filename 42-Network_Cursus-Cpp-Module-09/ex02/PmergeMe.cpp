@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:55:50 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/18 10:56:24 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:25:35 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,31 +85,49 @@ void    PmergeMe::sortEachPairs()
             it->second = tmp;
         }
     }
+}
+
+bool    PmergeMe::checkSortPairs()
+{
+    std::vector<std::pair<int, int> >::iterator it;
+    std::vector<std::pair<int, int> >::iterator itn;
+    for (it = pr.begin(); it != pr.end(); it++)
+    {
+        for (itn = it + 1; itn != pr.end(); itn++)
+            if (it->second > itn->second)
+                return (false);
+    }
+    return true;
+}
+
+void    PmergeMe::swapPairs(std::vector<std::pair<int,int> >::iterator &it, std::vector<std::pair<int,int> >::iterator &itn)
+{
+    int tmp1, tmp2;
+    tmp1 = it->first;
+    tmp2 = it->second;
+    it->first = itn->first;
+    it->second = itn->second;
+    itn->first = tmp1;
+    itn->second = tmp2;
+    it++;
+}
+
+void    PmergeMe::sortPairs()
+{
+    std::vector<std::pair<int,int> >::iterator it;
+    std::vector<std::pair<int,int> >::iterator itn;
+    
+    while (!checkSortPairs())
+    {
+        for (it = pr.begin(); it != pr.end(); it++)
+        {
+            for (itn = it + 1; itn != pr.end(); itn++)
+            {
+                if (it->second > itn->second)
+                    swapPairs(it, itn);
+            }
+        }
+    }
     for (it = pr.begin(); it != pr.end(); it++)
         std::cout << it->first << " " << it->second << std::endl;
 }
-
-// bool    PmergeMe::checkSortPairs()
-// {
-//     std::vector<std::pair<int, int> >::iterator it;
-//     std::vector<std::pair<int, int> >::iterator itn;
-//     for (it = pr.begin(); it != pr.end(); it++)
-//     {
-//         for (itn = pr.begin() + 1; itn != pr.end(); itn++)
-//             if (it->second < itn->second)
-//                 return (false);
-//     }
-//     return true;
-// }
-
-
-// void    PmergeMe::sortPairs()
-// {
-//     int tmp1, tmp2;
-//     std::vector<std::pair<int,int> >::iterator it;
-    
-//     // while (!checkSortPairs())
-//     // {
-        
-//     // }
-// }
