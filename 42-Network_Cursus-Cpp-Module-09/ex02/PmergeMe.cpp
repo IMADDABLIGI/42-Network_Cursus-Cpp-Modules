@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:55:50 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/19 12:01:09 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:18:20 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ void    PmergeMe::executeVTR()
     sortPairs();
     splitPairs();
     creatJCB();
+    merging();
 }

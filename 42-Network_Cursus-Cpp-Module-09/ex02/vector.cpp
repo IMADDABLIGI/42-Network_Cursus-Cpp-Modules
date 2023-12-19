@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/19 16:40:52 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/19 18:12:43 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void    PmergeMe::splitPairs()
     for (it = pr.begin(); it != pr.end(); it++)
     {
         seq.push_back(it->second);
+        pnd.push_back(it->first);
         std::cout << it->first << " " << it->second << std::endl;
     }
     if (rem != -1)
@@ -127,6 +128,7 @@ void    PmergeMe::creatJCBR()
     std::cout << "JACOBR : ";
     for (it = jcbR.begin(); it != jcbR.end(); it++)
         std::cout << *it << " ";
+    std::cout << std::endl;
 }
 
 void    PmergeMe::creatJCB()
@@ -146,3 +148,17 @@ void    PmergeMe::creatJCB()
     creatJCBR();
 }
 
+void    PmergeMe::merging()
+{
+    std::vector<int>::iterator it;
+    int v;
+    for (it = jcbR.begin(); it != jcbR.end(); it++)
+    {
+        v = pnd[*it - 1];
+        seq.insert(std::lower_bound(seq.begin(), seq.end(), v), v);
+    }
+    if (rem != -1)
+        seq.insert(std::lower_bound(seq.begin(), seq.end(), rem), rem);
+    for (it = seq.begin(); it != seq.end(); it++)
+        std::cout << "seq : " << *it << std::endl;
+}

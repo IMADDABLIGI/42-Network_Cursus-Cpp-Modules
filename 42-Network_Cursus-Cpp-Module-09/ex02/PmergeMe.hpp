@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:51:05 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/19 16:18:25 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:48:10 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class PmergeMe
         void    splitPairs();
         void    creatJCB();
         void    creatJCBR();
+        void    merging();
         
         void    swapPairs(std::vector<std::pair<int,int> >::iterator &it, std::vector<std::pair<int,int> >::iterator &itn);
         bool    checkSortPairs();
