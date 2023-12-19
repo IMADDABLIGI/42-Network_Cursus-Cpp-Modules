@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:50:49 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/18 15:57:31 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/19 11:37:34 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,5 @@ int main(int ac, char **av)
     PmergeMe obj;
     if (!obj.parse(av, ac))
         return (1);
-    obj.makePairs();
-    obj.sortEachPairs();
-    obj.sortPairs();
-    obj.splitPairs();
+    obj.executeVTR();
 }

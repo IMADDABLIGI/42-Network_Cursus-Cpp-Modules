@@ -6,7 +6,7 @@
 #    By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 17:50:22 by idabligi          #+#    #+#              #
-#    Updated: 2023/12/17 17:50:41 by idabligi         ###   ########.fr        #
+#    Updated: 2023/12/19 11:38:03 by idabligi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 HEADERS = PmergeMe.hpp
 
-FL = main PmergeMe\
+FL = main PmergeMe vector\
 
 FO = $(FL:=.o)
 
