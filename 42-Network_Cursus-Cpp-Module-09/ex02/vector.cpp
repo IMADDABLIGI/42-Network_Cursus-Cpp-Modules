@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/19 13:04:32 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:59:43 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool PmergeMe::parse(char **av, int range)
     return true;
 }
 
-//----------------------------Implementations-------------------------//
+//----------------------------------Pairs--------------------------------//
 
 void    PmergeMe::makePairs()
 {
@@ -105,24 +105,30 @@ void    PmergeMe::splitPairs()
     for (it = pr.begin(); it != pr.end(); it++)
     {
         seq.push_back(it->second);
-        // std::cout << it->first << " " << it->second << std::endl;
+        std::cout << it->first << " " << it->second << std::endl;
     }
-    // if (rem != -1)
-    //     std::cout << rem << std::endl;
-    // std::cout << "--------------------------\n";
+    if (rem != -1)
+        std::cout << rem << std::endl;
+    std::cout << "--------------------------\n";
 }
+
+//----------------------------------Jacobsthal----------------------------------//
 
 void    PmergeMe::creatJCB()
 {
     std::vector<int>::iterator it;
     int check = pr.size();
-    std::cout << check << std::endl;
+    std::cout << "Size of Pairs is : " << check << std::endl;
     jcb.push_back(0);
     jcb.push_back(1);
-    for (int i = 1; jcb.back() < check; i++)
+    for (int i = 1; (jcb[i] + 2 * jcb[i - 1]) <= check; i++)
         jcb.push_back(jcb[i] + 2 * jcb[i - 1]);
     
     for (it = jcb.begin(); it != jcb.end(); it++)
         std::cout << *it << " ";
+    if (jcb.size() > 2)
+        jcbR.push_back(jcb[2]);
+        
     
 }
+
