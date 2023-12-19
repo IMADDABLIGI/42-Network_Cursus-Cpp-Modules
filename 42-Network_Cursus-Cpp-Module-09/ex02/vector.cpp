@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/19 15:59:43 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:40:52 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,21 @@ void    PmergeMe::splitPairs()
 
 //----------------------------------Jacobsthal----------------------------------//
 
+void    PmergeMe::creatJCBR()
+{
+    jcbR.push_back(jcb[2]);
+    std::vector<int>::iterator it;
+    for (it = jcb.begin()+3; it != jcb.end(); it++)
+    {
+        jcbR.push_back(*it);
+        for (int i = 1; (std::find(jcb.begin(), jcb.end(), *it - i) == jcb.end()); i++)
+            jcbR.push_back(*it - i);
+    }
+    std::cout << "JACOBR : ";
+    for (it = jcbR.begin(); it != jcbR.end(); it++)
+        std::cout << *it << " ";
+}
+
 void    PmergeMe::creatJCB()
 {
     std::vector<int>::iterator it;
@@ -124,11 +139,10 @@ void    PmergeMe::creatJCB()
     for (int i = 1; (jcb[i] + 2 * jcb[i - 1]) <= check; i++)
         jcb.push_back(jcb[i] + 2 * jcb[i - 1]);
     
+    std::cout << "JACOB  : ";
     for (it = jcb.begin(); it != jcb.end(); it++)
         std::cout << *it << " ";
-    if (jcb.size() > 2)
-        jcbR.push_back(jcb[2]);
-        
-    
+        std::cout << std::endl;
+    creatJCBR();
 }
 
