@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:50:49 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/20 20:05:29 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/20 20:29:13 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,7 @@ int main(int ac, char **av)
     if (!obj.parseVTR(av, ac))
         return (1);
     obj.executeVTR();
+    if (!obj.parseDQ(av, ac))
+        return (1);
+    obj.executeDQ();
 }
