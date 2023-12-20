@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/19 18:12:43 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/20 10:29:26 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,7 @@ void    PmergeMe::splitPairs()
     {
         seq.push_back(it->second);
         pnd.push_back(it->first);
-        std::cout << it->first << " " << it->second << std::endl;
     }
-    if (rem != -1)
-        std::cout << rem << std::endl;
-    std::cout << "--------------------------\n";
 }
 
 //----------------------------------Jacobsthal----------------------------------//
@@ -125,26 +121,17 @@ void    PmergeMe::creatJCBR()
         for (int i = 1; (std::find(jcb.begin(), jcb.end(), *it - i) == jcb.end()); i++)
             jcbR.push_back(*it - i);
     }
-    std::cout << "JACOBR : ";
-    for (it = jcbR.begin(); it != jcbR.end(); it++)
-        std::cout << *it << " ";
-    std::cout << std::endl;
 }
 
 void    PmergeMe::creatJCB()
 {
     std::vector<int>::iterator it;
     int check = pr.size();
-    std::cout << "Size of Pairs is : " << check << std::endl;
+
     jcb.push_back(0);
     jcb.push_back(1);
     for (int i = 1; (jcb[i] + 2 * jcb[i - 1]) <= check; i++)
         jcb.push_back(jcb[i] + 2 * jcb[i - 1]);
-    
-    std::cout << "JACOB  : ";
-    for (it = jcb.begin(); it != jcb.end(); it++)
-        std::cout << *it << " ";
-        std::cout << std::endl;
     creatJCBR();
 }
 
@@ -152,13 +139,15 @@ void    PmergeMe::merging()
 {
     std::vector<int>::iterator it;
     int v;
+
+    seq.insert(std::lower_bound(seq.begin(), seq.end(), pnd.front()), pnd.front());
     for (it = jcbR.begin(); it != jcbR.end(); it++)
     {
-        v = pnd[*it - 1];
+        v = pnd[*it];
         seq.insert(std::lower_bound(seq.begin(), seq.end(), v), v);
     }
     if (rem != -1)
         seq.insert(std::lower_bound(seq.begin(), seq.end(), rem), rem);
     for (it = seq.begin(); it != seq.end(); it++)
-        std::cout << "seq : " << *it << std::endl;
+        std::cout << " " << *it;
 }
