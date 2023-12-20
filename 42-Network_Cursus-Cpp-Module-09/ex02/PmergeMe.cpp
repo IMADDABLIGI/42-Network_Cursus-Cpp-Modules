@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:55:50 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/20 15:07:44 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:58:06 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,11 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &org_obj)
 PmergeMe::~PmergeMe()
 {}
 
-
 //----------------------------------------------------------------------------------------//
 
 void    PmergeMe::executeVTR()
 {
-    std::cout << "Before:  ";
-    for (it = vc.begin(); it != vc.end(); it++)
-        std::cout << " " << *it;
-    std::cout << std::endl;
+    print("before:  ", vc);
     if (vc.size() != 1)
     {
         makePairs();
@@ -51,8 +47,8 @@ void    PmergeMe::executeVTR()
         merging();
     }
     else
-    {
-        std::cout << "After:    ";
-        std::cout << vc.front() << std::endl;
-    }
+        this->print("After:   ", vc);
+    gettimeofday(&endTime, NULL);
+    std::cout << "Time to process a range of  " << seq.size() << " elements with std::vector : ";
+    std::cout << (endTime.tv_usec - beginTime.tv_usec) << " us" << std::endl;
 }

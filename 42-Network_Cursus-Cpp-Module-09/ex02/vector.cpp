@@ -6,11 +6,24 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/20 15:06:59 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:53:43 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+//----------------------------Printing-----------------------------------//
+
+void    PmergeMe::print(std::string str, std::vector<int> &var)
+{
+    std::cout << str;
+    if (var.size() != 1)
+        for (it = var.begin(); it != var.end(); it++)
+            std::cout << " " << *it;
+    else
+        std::cout << var.front();
+    std::cout << std::endl;
+}
 
 //----------------------------Parsing-----------------------------------//
 
@@ -18,7 +31,8 @@ bool PmergeMe::parse(char **av, int range)
 {
     long vl;
     std::stringstream sstr;
-
+    
+    gettimeofday(&beginTime, NULL);
     for (int i = 1; i < range; i++)
     {
         sstr << av[i];
@@ -73,7 +87,7 @@ bool    PmergeMe::checkSortPairs()
     return true;
 }
 
-void    PmergeMe::swapPairs(std::vector<std::pair<int,int> >::iterator &it, std::vector<std::pair<int,int> >::iterator &itn)
+void    PmergeMe::swapPairs(IT &it, IT &itn)
 {
     int tmp1, tmp2;
     tmp1 = it->first;
@@ -148,8 +162,5 @@ void    PmergeMe::merging()
     }
     if (rem != -1)
         seq.insert(std::lower_bound(seq.begin(), seq.end(), rem), rem);
-    std::cout << "After:   ";
-    for (it = seq.begin(); it != seq.end(); it++)
-        std::cout << " " << *it;
-    std::cout << std::endl;
+    this->print("After:   ", seq);
 }
