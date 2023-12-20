@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:51:05 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/19 17:48:10 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:06:29 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class PmergeMe
         int rem; //remaining if we have an odd integers;
         std::vector<int> jcb;
         std::vector<int> jcbR;
+        std::vector<int>::iterator it;//Iterator
 
     public:
         PmergeMe();

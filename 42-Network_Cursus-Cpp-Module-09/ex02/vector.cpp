@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/20 10:29:26 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:06:59 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ bool PmergeMe::parse(char **av, int range)
 void    PmergeMe::makePairs()
 {
     if (vc.size() % 2 != 0)
+    {
         this->rem = vc.back();
-    vc.pop_back();
+        vc.pop_back();
+    }
     for (size_t i = 0; i < vc.size(); i += 2)
         pr.push_back(std::make_pair(vc[i], vc[i+1]));
 }
@@ -114,7 +116,6 @@ void    PmergeMe::splitPairs()
 void    PmergeMe::creatJCBR()
 {
     jcbR.push_back(jcb[2]);
-    std::vector<int>::iterator it;
     for (it = jcb.begin()+3; it != jcb.end(); it++)
     {
         jcbR.push_back(*it);
@@ -125,7 +126,6 @@ void    PmergeMe::creatJCBR()
 
 void    PmergeMe::creatJCB()
 {
-    std::vector<int>::iterator it;
     int check = pr.size();
 
     jcb.push_back(0);
@@ -137,17 +137,19 @@ void    PmergeMe::creatJCB()
 
 void    PmergeMe::merging()
 {
-    std::vector<int>::iterator it;
-    int v;
+    std::vector<int>::iterator check;
 
-    seq.insert(std::lower_bound(seq.begin(), seq.end(), pnd.front()), pnd.front());
+    seq.insert(std::lower_bound(seq.begin(), seq.end(), pnd.front()), pnd.front());//Inserting the first value in PND
     for (it = jcbR.begin(); it != jcbR.end(); it++)
     {
-        v = pnd[*it];
-        seq.insert(std::lower_bound(seq.begin(), seq.end(), v), v);
+        check = pnd.begin() + *it;
+        if (check != pnd.end())
+            seq.insert(std::lower_bound(seq.begin(), seq.end(), pnd[*it]), pnd[*it]);
     }
     if (rem != -1)
         seq.insert(std::lower_bound(seq.begin(), seq.end(), rem), rem);
+    std::cout << "After:   ";
     for (it = seq.begin(); it != seq.end(); it++)
         std::cout << " " << *it;
+    std::cout << std::endl;
 }
