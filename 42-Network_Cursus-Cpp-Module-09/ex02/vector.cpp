@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/20 15:53:43 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/20 20:06:22 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //----------------------------Printing-----------------------------------//
 
-void    PmergeMe::print(std::string str, std::vector<int> &var)
+void    PmergeMe::printVTR(std::string str, std::vector<int> &var)
 {
     std::cout << str;
     if (var.size() != 1)
@@ -27,7 +27,7 @@ void    PmergeMe::print(std::string str, std::vector<int> &var)
 
 //----------------------------Parsing-----------------------------------//
 
-bool PmergeMe::parse(char **av, int range)
+bool PmergeMe::parseVTR(char **av, int range)
 {
     long vl;
     std::stringstream sstr;
@@ -47,7 +47,7 @@ bool PmergeMe::parse(char **av, int range)
 
 //----------------------------------Pairs--------------------------------//
 
-void    PmergeMe::makePairs()
+void    PmergeMe::makePairsVTR()
 {
     if (vc.size() % 2 != 0)
     {
@@ -58,7 +58,7 @@ void    PmergeMe::makePairs()
         pr.push_back(std::make_pair(vc[i], vc[i+1]));
 }
 
-void    PmergeMe::sortEachPairs()
+void    PmergeMe::sortEachPairsVTR()
 {
     int tmp;
     std::vector<std::pair<int,int> >::iterator it;
@@ -74,7 +74,7 @@ void    PmergeMe::sortEachPairs()
     }
 }
 
-bool    PmergeMe::checkSortPairs()
+bool    PmergeMe::checkSortPairsVTR()
 {
     std::vector<std::pair<int, int> >::iterator it;
     std::vector<std::pair<int, int> >::iterator itn;
@@ -87,7 +87,7 @@ bool    PmergeMe::checkSortPairs()
     return true;
 }
 
-void    PmergeMe::swapPairs(IT &it, IT &itn)
+void    PmergeMe::swapPairsVTR(IT &it, IT &itn)
 {
     int tmp1, tmp2;
     tmp1 = it->first;
@@ -99,23 +99,23 @@ void    PmergeMe::swapPairs(IT &it, IT &itn)
     it++;
 }
 
-void    PmergeMe::sortPairs()
+void    PmergeMe::sortPairsVTR()
 {
     std::vector<std::pair<int,int> >::iterator it;
     std::vector<std::pair<int,int> >::iterator itn;
 
-    while (!checkSortPairs())
+    while (!checkSortPairsVTR())
     {
         for (it = pr.begin(); it != pr.end(); it++)
         {
             for (itn = it + 1; itn != pr.end(); itn++)
                 if (it->second > itn->second)
-                    swapPairs(it, itn);
+                    swapPairsVTR(it, itn);
         }
     }
 }
 
-void    PmergeMe::splitPairs()
+void    PmergeMe::splitPairsVTR()
 {
     std::vector<std::pair<int, int> >::iterator it;
     for (it = pr.begin(); it != pr.end(); it++)
@@ -127,7 +127,7 @@ void    PmergeMe::splitPairs()
 
 //----------------------------------Jacobsthal----------------------------------//
 
-void    PmergeMe::creatJCBR()
+void    PmergeMe::creatJCBRVTR()
 {
     jcbR.push_back(jcb[2]);
     for (it = jcb.begin()+3; it != jcb.end(); it++)
@@ -138,7 +138,7 @@ void    PmergeMe::creatJCBR()
     }
 }
 
-void    PmergeMe::creatJCB()
+void    PmergeMe::creatJCBVTR()
 {
     int check = pr.size();
 
@@ -146,10 +146,10 @@ void    PmergeMe::creatJCB()
     jcb.push_back(1);
     for (int i = 1; (jcb[i] + 2 * jcb[i - 1]) <= check; i++)
         jcb.push_back(jcb[i] + 2 * jcb[i - 1]);
-    creatJCBR();
+    creatJCBRVTR();
 }
 
-void    PmergeMe::merging()
+void    PmergeMe::mergingVTR()
 {
     std::vector<int>::iterator check;
 
@@ -162,5 +162,5 @@ void    PmergeMe::merging()
     }
     if (rem != -1)
         seq.insert(std::lower_bound(seq.begin(), seq.end(), rem), rem);
-    this->print("After:   ", seq);
+    this->printVTR("After:   ", seq);
 }

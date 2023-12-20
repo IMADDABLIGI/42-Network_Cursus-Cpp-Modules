@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:51:05 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/20 15:58:12 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/20 20:05:14 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,19 @@ class PmergeMe
         PmergeMe &operator=(const PmergeMe &org_obj);
         ~PmergeMe();
 
-        bool    parse(char **av, int range);
+        bool    parseVTR(char **av, int range);
         void    executeVTR();
-        void    makePairs();
-        void    sortEachPairs();
-        void    sortPairs();
-        void    splitPairs();
-        void    creatJCB();
-        void    creatJCBR();
-        void    merging();
-        void    print(std::string str, std::vector<int> &var);
+        void    makePairsVTR();
+        void    sortEachPairsVTR();
+        void    sortPairsVTR();
+        void    splitPairsVTR();
+        void    creatJCBVTR();
+        void    creatJCBRVTR();
+        void    mergingVTR();
+        void    printVTR(std::string str, std::vector<int> &var);
 
-        void    swapPairs(IT &it, IT &itn);
-        bool    checkSortPairs();
+        void    swapPairsVTR(IT &it, IT &itn);
+        bool    checkSortPairsVTR();
 };
 
 #endif

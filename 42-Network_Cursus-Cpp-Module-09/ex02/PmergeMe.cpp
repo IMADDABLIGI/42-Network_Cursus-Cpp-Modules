@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:55:50 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/20 15:58:06 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/20 20:06:47 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,18 @@ PmergeMe::~PmergeMe()
 
 void    PmergeMe::executeVTR()
 {
-    print("before:  ", vc);
+    printVTR("before:  ", vc);
     if (vc.size() != 1)
     {
-        makePairs();
-        sortEachPairs();
-        sortPairs();
-        splitPairs();
-        creatJCB();
-        merging();
+        makePairsVTR();
+        sortEachPairsVTR();
+        sortPairsVTR();
+        splitPairsVTR();
+        creatJCBVTR();
+        mergingVTR();
     }
     else
-        this->print("After:   ", vc);
+        this->printVTR("After:   ", vc);
     gettimeofday(&endTime, NULL);
     std::cout << "Time to process a range of  " << seq.size() << " elements with std::vector : ";
     std::cout << (endTime.tv_usec - beginTime.tv_usec) << " us" << std::endl;
