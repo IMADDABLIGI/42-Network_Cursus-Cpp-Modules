@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:55:50 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/21 10:49:18 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:18:07 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &org_obj)
 PmergeMe::~PmergeMe()
 {}
 
-//----------------------------------------------------------------------------------------//
+//--------------------------------------Vector------------------------------------------//
 
 void    PmergeMe::executeVTR()
 {
@@ -48,10 +48,12 @@ void    PmergeMe::executeVTR()
     }
     else
         this->printVTR("After:   ", vc);
-    gettimeofday(&endTime, NULL);
+    endTime = std::clock();
     std::cout << "Time to process a range of  " << seq.size() << " elements with std::vector : ";
-    std::cout << (endTime.tv_usec - beginTime.tv_usec) << " us" << std::endl;
+    std::cout << (endTime-beginTime) << " us" << std::endl;
 }
+
+//--------------------------------------Deque------------------------------------------//
 
 void    PmergeMe::executeDQ()
 {
@@ -67,7 +69,7 @@ void    PmergeMe::executeDQ()
     }
     else
         this->printDQ("After:   ", dq);
-    gettimeofday(&endTime, NULL);
+    endTime = std::clock();
     std::cout << "Time to process a range of  " << sq.size() << " elements with std::deque  : ";
-    std::cout << (endTime.tv_usec - beginTime.tv_usec) << " us" << std::endl;
+    std::cout << (endTime-beginTime) << " us" << std::endl;
 }

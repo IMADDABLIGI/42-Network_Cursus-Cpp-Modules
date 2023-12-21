@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/21 11:04:19 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:08:52 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ void    PmergeMe::printVTR(std::string str, std::vector<int> &var)
 bool PmergeMe::parseVTR(char **av, int range)
 {
     long vl;
-    count = 0;
     std::stringstream sstr;
     
-    gettimeofday(&beginTime, NULL);
+    beginTime = std::clock();
     for (int i = 1; i < range; i++)
     {
         sstr << av[i];

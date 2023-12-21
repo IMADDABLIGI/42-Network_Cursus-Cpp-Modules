@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:51:05 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/21 10:54:26 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:08:10 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class PmergeMe
 {
     private:
         int rem; //remaining if we have an odd integers;
-        timeval beginTime, endTime;
-        int count;
+        std::clock_t beginTime, endTime;
         
         //vectors
         std::vector<int> vc, seq, pnd, jcb, jcbR;

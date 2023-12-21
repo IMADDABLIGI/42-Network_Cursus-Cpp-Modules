@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 20:11:58 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/21 09:03:14 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:09:08 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool PmergeMe::parseDQ(char **av, int range)
     long vl;
     std::stringstream sstr;
     
-    gettimeofday(&beginTime, NULL);
+    beginTime = std::clock();
     for (int i = 1; i < range; i++)
     {
         sstr << av[i];
@@ -129,35 +129,41 @@ void    PmergeMe::splitPairsDQ()
 
 void    PmergeMe::creatJCBRDQ()
 {
+    int check = 0;
+    int size = prq.size();
     jcbRQ.push_back(jcbq[2]);
-    for (itq = jcbq.begin()+3; itq != jcbq.end(); itq++)
+    for (itq = jcbq.begin()+3; !check; itq++)
     {
         jcbRQ.push_back(*itq);
+        if (*itq == size)
+            check = 1;
         for (int i = 1; (std::find(jcbq.begin(), jcbq.end(), *itq - i) == jcbq.end()); i++)
+        {
             jcbRQ.push_back(*itq - i);
+            if ((*itq - i) == size)
+                check = 1;
+        }
     }
 }
 
 void    PmergeMe::creatJCBDQ()
 {
-    int check = prq.size();
-
-    jcbq.push_back(0);
-    jcbq.push_back(1);
-    for (int i = 1; (jcbq[i] + 2 * jcbq[i - 1]) <= check; i++)
-        jcbq.push_back(jcbq[i] + 2 * jcbq[i - 1]);
-    creatJCBRDQ();
+    if (prq.size() != 1)
+    {
+        jcbq.push_back(0);
+        jcbq.push_back(1);
+        for (int i = 1; i < 13; i++)
+            jcbq.push_back(jcbq[i] + 2 * jcbq[i - 1]);
+        creatJCBRDQ();
+    }
 }
 
 void    PmergeMe::mergingDQ()
 {
-    std::deque<int>::iterator check;
-
-    sq.insert(std::lower_bound(sq.begin(), sq.end(), pd.front()), pd.front());//Inserting the first value in PD
+    sq.insert(std::lower_bound(sq.begin(), sq.end(), pd.front()), pd.front());//Inserting the first value in PND
     for (itq = jcbRQ.begin(); itq != jcbRQ.end(); itq++)
     {
-        check = pd.begin() + *itq;
-        if (check != pd.end())
+        if (*itq < (int)(prq.size()))
             sq.insert(std::lower_bound(sq.begin(), sq.end(), pd[*itq]), pd[*itq]);
     }
     if (rem != -1)
