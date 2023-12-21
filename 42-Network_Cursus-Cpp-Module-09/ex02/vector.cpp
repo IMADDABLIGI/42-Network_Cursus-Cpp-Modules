@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/20 20:11:33 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:04:19 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void    PmergeMe::printVTR(std::string str, std::vector<int> &var)
 bool PmergeMe::parseVTR(char **av, int range)
 {
     long vl;
+    count = 0;
     std::stringstream sstr;
     
     gettimeofday(&beginTime, NULL);
@@ -129,35 +130,41 @@ void    PmergeMe::splitPairsVTR()
 
 void    PmergeMe::creatJCBRVTR()
 {
+    int check = 0;
+    int size = pr.size();
     jcbR.push_back(jcb[2]);
-    for (it = jcb.begin()+3; it != jcb.end(); it++)
+    for (it = jcb.begin()+3; !check; it++)
     {
         jcbR.push_back(*it);
+        if (*it == size)
+            check = 1;
         for (int i = 1; (std::find(jcb.begin(), jcb.end(), *it - i) == jcb.end()); i++)
+        {
             jcbR.push_back(*it - i);
+            if ((*it - i) == size)
+                check = 1;
+        }
     }
 }
 
 void    PmergeMe::creatJCBVTR()
 {
-    int check = pr.size();
-
-    jcb.push_back(0);
-    jcb.push_back(1);
-    for (int i = 1; (jcb[i] + 2 * jcb[i - 1]) <= check; i++)
-        jcb.push_back(jcb[i] + 2 * jcb[i - 1]);
-    creatJCBRVTR();
+    if (pr.size() != 1)
+    {
+        jcb.push_back(0);
+        jcb.push_back(1);
+        for (int i = 1; i < 13; i++)
+            jcb.push_back(jcb[i] + 2 * jcb[i - 1]);
+        creatJCBRVTR();
+    }
 }
 
 void    PmergeMe::mergingVTR()
 {
-    std::vector<int>::iterator check;
-
     seq.insert(std::lower_bound(seq.begin(), seq.end(), pnd.front()), pnd.front());//Inserting the first value in PND
     for (it = jcbR.begin(); it != jcbR.end(); it++)
     {
-        check = pnd.begin() + *it;
-        if (check != pnd.end())
+        if (*it < (int)(pr.size()))
             seq.insert(std::lower_bound(seq.begin(), seq.end(), pnd[*it]), pnd[*it]);
     }
     if (rem != -1)
