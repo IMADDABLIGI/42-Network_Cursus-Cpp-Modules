@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:47:46 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/16 17:09:13 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:28:00 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int ac, char **av)
         }
         catch (const std::exception &e){
             std::cout << e.what();
+            return (1);
         }
     }
 }
