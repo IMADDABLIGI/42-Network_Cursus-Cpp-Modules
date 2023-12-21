@@ -6,13 +6,26 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:31:24 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/21 12:08:52 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:01:27 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 //----------------------------Printing-----------------------------------//
+
+void    PmergeMe::printTimeVTR()
+{
+    endTime = std::clock();
+    rem = vc.size();
+    if (rem != 1)
+    {
+        std::cout << "Time to process a range of  " << seq.size() << " elements with std::vector  : ";
+        std::cout << (endTime-beginTime) << " us" << std::endl;
+    }
+    else
+        std::cout << "Time to process a range of  1 elements with std::vector  : " << (endTime-beginTime) << " us" << std::endl;
+}
 
 void    PmergeMe::printVTR(std::string str, std::vector<int> &var)
 {
@@ -152,7 +165,7 @@ void    PmergeMe::creatJCBVTR()
     {
         jcb.push_back(0);
         jcb.push_back(1);
-        for (int i = 1; i < 13; i++)
+        for (int i = 1; i < 21; i++)
             jcb.push_back(jcb[i] + 2 * jcb[i - 1]);
         creatJCBRVTR();
     }

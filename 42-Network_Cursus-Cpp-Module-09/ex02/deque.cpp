@@ -6,13 +6,26 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 20:11:58 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/21 12:09:08 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:02:53 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 //----------------------------Printing-----------------------------------//
+
+void    PmergeMe::printTimeDQ()
+{
+    endTime = std::clock();
+    rem = dq.size();
+    if (rem != 1)
+    {
+        std::cout << "Time to process a range of  " << sq.size() << " elements with std::deque   : ";
+        std::cout << (endTime-beginTime) << " us" << std::endl;
+    }
+    else
+        std::cout << "Time to process a range of  1 elements with std::deque  : " << (endTime-beginTime) << " us" << std::endl;
+}
 
 void    PmergeMe::printDQ(std::string str, std::deque<int> &var)
 {
@@ -152,7 +165,7 @@ void    PmergeMe::creatJCBDQ()
     {
         jcbq.push_back(0);
         jcbq.push_back(1);
-        for (int i = 1; i < 13; i++)
+        for (int i = 1; i < 21; i++)
             jcbq.push_back(jcbq[i] + 2 * jcbq[i - 1]);
         creatJCBRDQ();
     }

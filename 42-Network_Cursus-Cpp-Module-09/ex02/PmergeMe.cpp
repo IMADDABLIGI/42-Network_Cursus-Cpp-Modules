@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:55:50 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/21 12:18:07 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:11:13 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,26 @@ PmergeMe::PmergeMe(const PmergeMe &org_obj)
 PmergeMe &PmergeMe::operator=(const PmergeMe &org_obj)
 {
     if (this != &org_obj)
-    {}
+    {
+        rem = org_obj.rem;
+        beginTime = org_obj.beginTime;
+        //vector
+        vc = org_obj.vc;
+        seq = org_obj.seq;
+        pnd = org_obj.pnd;
+        jcb = org_obj.jcb;
+        jcbR = org_obj.jcbR;
+        pr = org_obj.pr;
+        it = org_obj.it;
+        //deque
+        dq = org_obj.dq;
+        sq = org_obj.sq;
+        pd = org_obj.pd;
+        jcbq = org_obj.jcbq;
+        jcbRQ = org_obj.jcbRQ;
+        prq = org_obj.prq;
+        itq = org_obj.itq;
+    }
 	return (*this);
 }
 
@@ -48,9 +67,7 @@ void    PmergeMe::executeVTR()
     }
     else
         this->printVTR("After:   ", vc);
-    endTime = std::clock();
-    std::cout << "Time to process a range of  " << seq.size() << " elements with std::vector : ";
-    std::cout << (endTime-beginTime) << " us" << std::endl;
+    printTimeVTR();
 }
 
 //--------------------------------------Deque------------------------------------------//
@@ -58,7 +75,7 @@ void    PmergeMe::executeVTR()
 void    PmergeMe::executeDQ()
 {
     printDQ("before:  ", dq);
-    if (vc.size() != 1)
+    if (dq.size() != 1)
     {
         makePairsDQ();
         sortEachPairsDQ();
@@ -69,7 +86,5 @@ void    PmergeMe::executeDQ()
     }
     else
         this->printDQ("After:   ", dq);
-    endTime = std::clock();
-    std::cout << "Time to process a range of  " << sq.size() << " elements with std::deque  : ";
-    std::cout << (endTime-beginTime) << " us" << std::endl;
+    printTimeDQ();
 }
