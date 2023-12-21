@@ -6,7 +6,7 @@
 /*   By: idabligi <idabligi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 20:11:58 by idabligi          #+#    #+#             */
-/*   Updated: 2023/12/20 20:24:43 by idabligi         ###   ########.fr       */
+/*   Updated: 2023/12/21 09:03:14 by idabligi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void    PmergeMe::creatJCBRDQ()
     for (itq = jcbq.begin()+3; itq != jcbq.end(); itq++)
     {
         jcbRQ.push_back(*itq);
-        for (int i = 1; (std::find(jcbq.begin(), jcbq.end(), *it - i) == jcbq.end()); i++)
+        for (int i = 1; (std::find(jcbq.begin(), jcbq.end(), *itq - i) == jcbq.end()); i++)
             jcbRQ.push_back(*itq - i);
     }
 }
