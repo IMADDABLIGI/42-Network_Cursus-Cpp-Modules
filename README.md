@@ -18,7 +18,7 @@ The repository is organized into folders, with each folder representing a day of
 
 # Ressources
 - Day 0:
-    - CPP : https://www.w3schools.com/cpp/default.asp | https://www.youtube.com/watch?v=18c3MTX0PK0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&pp=iAQB
+    - CPP : https://www.w3schools.com/cpp/default.asp | https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
 - Day 1:
     - Pointers to Members : https://learn.microsoft.com/en-us/cpp/cpp/pointers-to-members?view=msvc-170
     - Pointers to Member Functions : http://websites.umich.edu/~eecs381/handouts/Pointers_to_memberfuncs.pdf
@@ -30,3 +30,15 @@ The repository is organized into folders, with each folder representing a day of
     - Fixed Point Number Representation : https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html
 - Day 3:
     - Inheritance : https://www.youtube.com/watch?v=rJlJ8qqVm3k&pp=ygUSaW5oZXJpdGFuY2UgaW4gYys | https://www.youtube.com/watch?v=-W-TYjL0aFE&pp=ygUSaW5oZXJpdGFuY2UgaW4gYysr
+- Day 4:
+    - Abstract classes : https://www.youtube.com/watch?v=T8f4ajtFU9g&pp=ygUVYWJzdHJhY3QgY2xhc3MgaW4gYysr
+- Day 5:
+    - Exceptions : https://www.youtube.com/watch?v=kjEhqgmEiWY&t=593s&pp=ygUXZXhjZXB0aW9ucyBjbGFzcyBpbiBjKys%3D
+- Day 6:
+    - Type Casting : https://www.youtube.com/watch?v=CotRZp8l8uQ&t=2234s&pp=ygUTdHlwZSBjYXN0aW5nIGluIGMrKw%3D%3D
+- Day 7:
+    - Function Templates : https://www.youtube.com/watch?v=XgGEJylsWsQ&t=1s&pp=ygUQdGVtcGxhdGVzIGluIGMrKw%3D%3D
+- Day 8 :
+    - Class Tempalates : https://www.youtube.com/watch?v=mQqzP9EWu58&pp=ygUQdGVtcGxhdGVzIGluIGMrKw%3D%3D
+- Day 9:
+    - STL : https://www.youtube.com/playlist?list=PLk6CEY9XxSIA-xo3HRYC3M0Aitzdut7AA
