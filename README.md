@@ -1,4 +1,4 @@
-# FT_IRC
+# 42-Network_Cursus-Cpp-Modules
 
 This repository contains a collection of exercises designed to help you learn object-oriented programming (OOP) concepts in C++. Each day represents a specific topic, and the exercises within each day focus on different capabilities of C++.
 
