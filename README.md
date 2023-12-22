@@ -22,7 +22,7 @@ Here are the resources for each day:
 - Day 00:
     - [CPP Playlist](https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb)
 
-- Day 01: Memory allocation, Reference, Pointers to members
+- Day 01:
     - [Pointers to Members](https://learn.microsoft.com/en-us/cpp/cpp/pointers-to-members?view=msvc-170)
     - [Pointers to Member Functions](http://websites.umich.edu/~eecs381/handouts/Pointers_to_memberfuncs.pdf)
 
