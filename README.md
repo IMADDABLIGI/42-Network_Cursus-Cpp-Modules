@@ -18,18 +18,17 @@ The repository is organized into folders, with each folder representing a day of
 
 # Ressources
 - Day 00:
-    - CPP : https://www.w3schools.com/cpp/default.asp | https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
+    - CPP : https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
 - Day 01:
     - Pointers to Members : https://learn.microsoft.com/en-us/cpp/cpp/pointers-to-members?view=msvc-170
     - Pointers to Member Functions : http://websites.umich.edu/~eecs381/handouts/Pointers_to_memberfuncs.pdf
 - Day 02:
     - Floating Point : https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point.html
-    - Floating Point Representation : https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point.html
     - Github link that explains Floating point : https://github.com/es-liby/FloatingPointNumbersCPP#readme
     - IEEE-754 Floating Point Converter : https://www.h-schmidt.net/FloatConverter/IEEE754.html
     - Fixed Point Number Representation : https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html
 - Day 03:
-    - Inheritance : https://www.youtube.com/watch?v=rJlJ8qqVm3k&pp=ygUSaW5oZXJpdGFuY2UgaW4gYys | https://www.youtube.com/watch?v=-W-TYjL0aFE&pp=ygUSaW5oZXJpdGFuY2UgaW4gYysr
+    - Inheritance : https://www.youtube.com/watch?v=rJlJ8qqVm3k&pp=ygUSaW5oZXJpdGFuY2UgaW4gYys
 - Day 04:
     - Abstract classes : https://www.youtube.com/watch?v=T8f4ajtFU9g&pp=ygUVYWJzdHJhY3QgY2xhc3MgaW4gYysr
 - Day 05:
