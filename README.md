@@ -17,7 +17,6 @@ The repository is organized into folders, with each folder representing a day of
 - Day 09: STL-Templated Containers
 
 ## Resources
-Here are the resources for each day:
 
 - Day 00:
     - [CPP Playlist](https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb)
